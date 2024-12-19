@@ -1,0 +1,947 @@
+[
+  {
+    "name": "Paris Hotel 1",
+    "address": "1 Avenue des Champs-\u00c9lys\u00e9es, Paris",
+    "city": "Paris",
+    "stars": 1,
+    "pricePerNight": 315.0
+  },
+  {
+    "name": "Paris Hotel 2",
+    "address": "2 Rue de Rivoli, Paris",
+    "city": "Paris",
+    "stars": 2,
+    "pricePerNight": 420.0
+  },
+  {
+    "name": "Paris Hotel 3",
+    "address": "3 Boulevard Haussmann, Paris",
+    "city": "Paris",
+    "stars": 3,
+    "pricePerNight": 525.0
+  },
+  {
+    "name": "Paris Hotel 4",
+    "address": "4 Rue Saint-Honor\u00e9, Paris",
+    "city": "Paris",
+    "stars": 4,
+    "pricePerNight": 630.0
+  },
+  {
+    "name": "Paris Hotel 5",
+    "address": "5 Quai Voltaire, Paris",
+    "city": "Paris",
+    "stars": 5,
+    "pricePerNight": 735.0
+  },
+  {
+    "name": "Paris Hotel 6",
+    "address": "6 Rue de Rennes, Paris",
+    "city": "Paris",
+    "stars": 1,
+    "pricePerNight": 315.0
+  },
+  {
+    "name": "Paris Hotel 7",
+    "address": "7 Avenue de l'Op\u00e9ra, Paris",
+    "city": "Paris",
+    "stars": 2,
+    "pricePerNight": 420.0
+  },
+  {
+    "name": "Paris Hotel 8",
+    "address": "8 Boulevard Saint-Michel, Paris",
+    "city": "Paris",
+    "stars": 3,
+    "pricePerNight": 525.0
+  },
+  {
+    "name": "Paris Hotel 9",
+    "address": "9 Rue de la Paix, Paris",
+    "city": "Paris",
+    "stars": 4,
+    "pricePerNight": 630.0
+  },
+  {
+    "name": "Paris Hotel 10",
+    "address": "10 Rue Cler, Paris",
+    "city": "Paris",
+    "stars": 5,
+    "pricePerNight": 735.0
+  },
+  {
+    "name": "Paris Hotel 11",
+    "address": "11 Avenue des Champs-\u00c9lys\u00e9es, Paris",
+    "city": "Paris",
+    "stars": 1,
+    "pricePerNight": 315.0
+  },
+  {
+    "name": "Paris Hotel 12",
+    "address": "12 Rue de Rivoli, Paris",
+    "city": "Paris",
+    "stars": 2,
+    "pricePerNight": 420.0
+  },
+  {
+    "name": "Paris Hotel 13",
+    "address": "13 Boulevard Haussmann, Paris",
+    "city": "Paris",
+    "stars": 3,
+    "pricePerNight": 525.0
+  },
+  {
+    "name": "Paris Hotel 14",
+    "address": "14 Rue Saint-Honor\u00e9, Paris",
+    "city": "Paris",
+    "stars": 4,
+    "pricePerNight": 630.0
+  },
+  {
+    "name": "Paris Hotel 15",
+    "address": "15 Quai Voltaire, Paris",
+    "city": "Paris",
+    "stars": 5,
+    "pricePerNight": 735.0
+  },
+  {
+    "name": "Bordeaux Hotel 1",
+    "address": "1 Place de la Bourse, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 1,
+    "pricePerNight": 226.2
+  },
+  {
+    "name": "Bordeaux Hotel 2",
+    "address": "2 Quai des Chartrons, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 2,
+    "pricePerNight": 301.6
+  },
+  {
+    "name": "Bordeaux Hotel 3",
+    "address": "3 Cours de l'Intendance, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 3,
+    "pricePerNight": 377.0
+  },
+  {
+    "name": "Bordeaux Hotel 4",
+    "address": "4 Rue Sainte-Catherine, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 4,
+    "pricePerNight": 452.4
+  },
+  {
+    "name": "Bordeaux Hotel 5",
+    "address": "5 Place Gambetta, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 5,
+    "pricePerNight": 527.8
+  },
+  {
+    "name": "Bordeaux Hotel 6",
+    "address": "6 Rue du Palais Gallien, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 1,
+    "pricePerNight": 226.2
+  },
+  {
+    "name": "Bordeaux Hotel 7",
+    "address": "7 Avenue Thiers, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 2,
+    "pricePerNight": 301.6
+  },
+  {
+    "name": "Bordeaux Hotel 8",
+    "address": "8 Rue Notre-Dame, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 3,
+    "pricePerNight": 377.0
+  },
+  {
+    "name": "Bordeaux Hotel 9",
+    "address": "9 Cours Victor Hugo, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 4,
+    "pricePerNight": 452.4
+  },
+  {
+    "name": "Bordeaux Hotel 10",
+    "address": "10 Rue des Remparts, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 5,
+    "pricePerNight": 527.8
+  },
+  {
+    "name": "Bordeaux Hotel 11",
+    "address": "11 Place de la Bourse, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 1,
+    "pricePerNight": 226.2
+  },
+  {
+    "name": "Bordeaux Hotel 12",
+    "address": "12 Quai des Chartrons, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 2,
+    "pricePerNight": 301.6
+  },
+  {
+    "name": "Bordeaux Hotel 13",
+    "address": "13 Cours de l'Intendance, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 3,
+    "pricePerNight": 377.0
+  },
+  {
+    "name": "Bordeaux Hotel 14",
+    "address": "14 Rue Sainte-Catherine, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 4,
+    "pricePerNight": 452.4
+  },
+  {
+    "name": "Bordeaux Hotel 15",
+    "address": "15 Place Gambetta, Bordeaux",
+    "city": "Bordeaux",
+    "stars": 5,
+    "pricePerNight": 527.8
+  },
+  {
+    "name": "Marseille Hotel 1",
+    "address": "1 Vieux Port, Marseille",
+    "city": "Marseille",
+    "stars": 1,
+    "pricePerNight": 187.2
+  },
+  {
+    "name": "Marseille Hotel 2",
+    "address": "2 La Canebi\u00e8re, Marseille",
+    "city": "Marseille",
+    "stars": 2,
+    "pricePerNight": 249.6
+  },
+  {
+    "name": "Marseille Hotel 3",
+    "address": "3 Rue Paradis, Marseille",
+    "city": "Marseille",
+    "stars": 3,
+    "pricePerNight": 312.0
+  },
+  {
+    "name": "Marseille Hotel 4",
+    "address": "4 Boulevard Longchamp, Marseille",
+    "city": "Marseille",
+    "stars": 4,
+    "pricePerNight": 374.4
+  },
+  {
+    "name": "Marseille Hotel 5",
+    "address": "5 Rue de la R\u00e9publique, Marseille",
+    "city": "Marseille",
+    "stars": 5,
+    "pricePerNight": 436.8
+  },
+  {
+    "name": "Marseille Hotel 6",
+    "address": "6 Cours Julien, Marseille",
+    "city": "Marseille",
+    "stars": 1,
+    "pricePerNight": 187.2
+  },
+  {
+    "name": "Marseille Hotel 7",
+    "address": "7 Rue Saint-Ferr\u00e9ol, Marseille",
+    "city": "Marseille",
+    "stars": 2,
+    "pricePerNight": 249.6
+  },
+  {
+    "name": "Marseille Hotel 8",
+    "address": "8 Avenue du Prado, Marseille",
+    "city": "Marseille",
+    "stars": 3,
+    "pricePerNight": 312.0
+  },
+  {
+    "name": "Marseille Hotel 9",
+    "address": "9 Rue de Rome, Marseille",
+    "city": "Marseille",
+    "stars": 4,
+    "pricePerNight": 374.4
+  },
+  {
+    "name": "Marseille Hotel 10",
+    "address": "10 Boulevard Michelet, Marseille",
+    "city": "Marseille",
+    "stars": 5,
+    "pricePerNight": 436.8
+  },
+  {
+    "name": "Marseille Hotel 11",
+    "address": "11 Vieux Port, Marseille",
+    "city": "Marseille",
+    "stars": 1,
+    "pricePerNight": 187.2
+  },
+  {
+    "name": "Marseille Hotel 12",
+    "address": "12 La Canebi\u00e8re, Marseille",
+    "city": "Marseille",
+    "stars": 2,
+    "pricePerNight": 249.6
+  },
+  {
+    "name": "Marseille Hotel 13",
+    "address": "13 Rue Paradis, Marseille",
+    "city": "Marseille",
+    "stars": 3,
+    "pricePerNight": 312.0
+  },
+  {
+    "name": "Marseille Hotel 14",
+    "address": "14 Boulevard Longchamp, Marseille",
+    "city": "Marseille",
+    "stars": 4,
+    "pricePerNight": 374.4
+  },
+  {
+    "name": "Marseille Hotel 15",
+    "address": "15 Rue de la R\u00e9publique, Marseille",
+    "city": "Marseille",
+    "stars": 5,
+    "pricePerNight": 436.8
+  },
+  {
+    "name": "Lyon Hotel 1",
+    "address": "1 Rue de la R\u00e9publique, Lyon",
+    "city": "Lyon",
+    "stars": 1,
+    "pricePerNight": 247.8
+  },
+  {
+    "name": "Lyon Hotel 2",
+    "address": "2 Place Bellecour, Lyon",
+    "city": "Lyon",
+    "stars": 2,
+    "pricePerNight": 330.4
+  },
+  {
+    "name": "Lyon Hotel 3",
+    "address": "3 Rue Victor Hugo, Lyon",
+    "city": "Lyon",
+    "stars": 3,
+    "pricePerNight": 413.0
+  },
+  {
+    "name": "Lyon Hotel 4",
+    "address": "4 Cours Lafayette, Lyon",
+    "city": "Lyon",
+    "stars": 4,
+    "pricePerNight": 495.6
+  },
+  {
+    "name": "Lyon Hotel 5",
+    "address": "5 Rue du Pr\u00e9sident \u00c9douard Herriot, Lyon",
+    "city": "Lyon",
+    "stars": 5,
+    "pricePerNight": 578.2
+  },
+  {
+    "name": "Lyon Hotel 6",
+    "address": "6 Quai Saint-Antoine, Lyon",
+    "city": "Lyon",
+    "stars": 1,
+    "pricePerNight": 247.8
+  },
+  {
+    "name": "Lyon Hotel 7",
+    "address": "7 Rue de S\u00e8ze, Lyon",
+    "city": "Lyon",
+    "stars": 2,
+    "pricePerNight": 330.4
+  },
+  {
+    "name": "Lyon Hotel 8",
+    "address": "8 Place des Terreaux, Lyon",
+    "city": "Lyon",
+    "stars": 3,
+    "pricePerNight": 413.0
+  },
+  {
+    "name": "Lyon Hotel 9",
+    "address": "9 Rue Merci\u00e8re, Lyon",
+    "city": "Lyon",
+    "stars": 4,
+    "pricePerNight": 495.6
+  },
+  {
+    "name": "Lyon Hotel 10",
+    "address": "10 Boulevard des Belges, Lyon",
+    "city": "Lyon",
+    "stars": 5,
+    "pricePerNight": 578.2
+  },
+  {
+    "name": "Lyon Hotel 11",
+    "address": "11 Rue de la R\u00e9publique, Lyon",
+    "city": "Lyon",
+    "stars": 1,
+    "pricePerNight": 247.8
+  },
+  {
+    "name": "Lyon Hotel 12",
+    "address": "12 Place Bellecour, Lyon",
+    "city": "Lyon",
+    "stars": 2,
+    "pricePerNight": 330.4
+  },
+  {
+    "name": "Lyon Hotel 13",
+    "address": "13 Rue Victor Hugo, Lyon",
+    "city": "Lyon",
+    "stars": 3,
+    "pricePerNight": 413.0
+  },
+  {
+    "name": "Lyon Hotel 14",
+    "address": "14 Cours Lafayette, Lyon",
+    "city": "Lyon",
+    "stars": 4,
+    "pricePerNight": 495.6
+  },
+  {
+    "name": "Lyon Hotel 15",
+    "address": "15 Rue du Pr\u00e9sident \u00c9douard Herriot, Lyon",
+    "city": "Lyon",
+    "stars": 5,
+    "pricePerNight": 578.2
+  },
+  {
+    "name": "Nice Hotel 1",
+    "address": "1 Promenade des Anglais, Nice",
+    "city": "Nice",
+    "stars": 1,
+    "pricePerNight": 321.6
+  },
+  {
+    "name": "Nice Hotel 2",
+    "address": "2 Rue de France, Nice",
+    "city": "Nice",
+    "stars": 2,
+    "pricePerNight": 428.8
+  },
+  {
+    "name": "Nice Hotel 3",
+    "address": "3 Avenue Jean M\u00e9decin, Nice",
+    "city": "Nice",
+    "stars": 3,
+    "pricePerNight": 536.0
+  },
+  {
+    "name": "Nice Hotel 4",
+    "address": "4 Boulevard Gambetta, Nice",
+    "city": "Nice",
+    "stars": 4,
+    "pricePerNight": 643.2
+  },
+  {
+    "name": "Nice Hotel 5",
+    "address": "5 Rue Mass\u00e9na, Nice",
+    "city": "Nice",
+    "stars": 5,
+    "pricePerNight": 750.4
+  },
+  {
+    "name": "Nice Hotel 6",
+    "address": "6 Rue Bonaparte, Nice",
+    "city": "Nice",
+    "stars": 1,
+    "pricePerNight": 321.6
+  },
+  {
+    "name": "Nice Hotel 7",
+    "address": "7 Quai des \u00c9tats-Unis, Nice",
+    "city": "Nice",
+    "stars": 2,
+    "pricePerNight": 428.8
+  },
+  {
+    "name": "Nice Hotel 8",
+    "address": "8 Rue Gioffredo, Nice",
+    "city": "Nice",
+    "stars": 3,
+    "pricePerNight": 536.0
+  },
+  {
+    "name": "Nice Hotel 9",
+    "address": "9 Boulevard Victor Hugo, Nice",
+    "city": "Nice",
+    "stars": 4,
+    "pricePerNight": 643.2
+  },
+  {
+    "name": "Nice Hotel 10",
+    "address": "10 Avenue F\u00e9lix Faure, Nice",
+    "city": "Nice",
+    "stars": 5,
+    "pricePerNight": 750.4
+  },
+  {
+    "name": "Nice Hotel 11",
+    "address": "11 Promenade des Anglais, Nice",
+    "city": "Nice",
+    "stars": 1,
+    "pricePerNight": 321.6
+  },
+  {
+    "name": "Nice Hotel 12",
+    "address": "12 Rue de France, Nice",
+    "city": "Nice",
+    "stars": 2,
+    "pricePerNight": 428.8
+  },
+  {
+    "name": "Nice Hotel 13",
+    "address": "13 Avenue Jean M\u00e9decin, Nice",
+    "city": "Nice",
+    "stars": 3,
+    "pricePerNight": 536.0
+  },
+  {
+    "name": "Nice Hotel 14",
+    "address": "14 Boulevard Gambetta, Nice",
+    "city": "Nice",
+    "stars": 4,
+    "pricePerNight": 643.2
+  },
+  {
+    "name": "Nice Hotel 15",
+    "address": "15 Rue Mass\u00e9na, Nice",
+    "city": "Nice",
+    "stars": 5,
+    "pricePerNight": 750.4
+  },
+  {
+    "name": "Rennes Hotel 1",
+    "address": "1 Rue Saint-Georges, Rennes",
+    "city": "Rennes",
+    "stars": 1,
+    "pricePerNight": 118.8
+  },
+  {
+    "name": "Rennes Hotel 2",
+    "address": "2 Rue d'Antrain, Rennes",
+    "city": "Rennes",
+    "stars": 2,
+    "pricePerNight": 158.4
+  },
+  {
+    "name": "Rennes Hotel 3",
+    "address": "3 Place Sainte-Anne, Rennes",
+    "city": "Rennes",
+    "stars": 3,
+    "pricePerNight": 198.0
+  },
+  {
+    "name": "Rennes Hotel 4",
+    "address": "4 Rue Vasselot, Rennes",
+    "city": "Rennes",
+    "stars": 4,
+    "pricePerNight": 237.6
+  },
+  {
+    "name": "Rennes Hotel 5",
+    "address": "5 Rue de la Visitation, Rennes",
+    "city": "Rennes",
+    "stars": 5,
+    "pricePerNight": 277.2
+  },
+  {
+    "name": "Rennes Hotel 6",
+    "address": "6 Rue de Nemours, Rennes",
+    "city": "Rennes",
+    "stars": 1,
+    "pricePerNight": 118.8
+  },
+  {
+    "name": "Rennes Hotel 7",
+    "address": "7 Rue du Champ-Jacquet, Rennes",
+    "city": "Rennes",
+    "stars": 2,
+    "pricePerNight": 158.4
+  },
+  {
+    "name": "Rennes Hotel 8",
+    "address": "8 Rue de Brest, Rennes",
+    "city": "Rennes",
+    "stars": 3,
+    "pricePerNight": 198.0
+  },
+  {
+    "name": "Rennes Hotel 9",
+    "address": "9 Avenue Aristide Briand, Rennes",
+    "city": "Rennes",
+    "stars": 4,
+    "pricePerNight": 237.6
+  },
+  {
+    "name": "Rennes Hotel 10",
+    "address": "10 Rue de la Monnaie, Rennes",
+    "city": "Rennes",
+    "stars": 5,
+    "pricePerNight": 277.2
+  },
+  {
+    "name": "Rennes Hotel 11",
+    "address": "11 Rue Saint-Georges, Rennes",
+    "city": "Rennes",
+    "stars": 1,
+    "pricePerNight": 118.8
+  },
+  {
+    "name": "Rennes Hotel 12",
+    "address": "12 Rue d'Antrain, Rennes",
+    "city": "Rennes",
+    "stars": 2,
+    "pricePerNight": 158.4
+  },
+  {
+    "name": "Rennes Hotel 13",
+    "address": "13 Place Sainte-Anne, Rennes",
+    "city": "Rennes",
+    "stars": 3,
+    "pricePerNight": 198.0
+  },
+  {
+    "name": "Rennes Hotel 14",
+    "address": "14 Rue Vasselot, Rennes",
+    "city": "Rennes",
+    "stars": 4,
+    "pricePerNight": 237.6
+  },
+  {
+    "name": "Rennes Hotel 15",
+    "address": "15 Rue de la Visitation, Rennes",
+    "city": "Rennes",
+    "stars": 5,
+    "pricePerNight": 277.2
+  },
+  {
+    "name": "Strasbourg Hotel 1",
+    "address": "1 Place Kl\u00e9ber, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 1,
+    "pricePerNight": 151.2
+  },
+  {
+    "name": "Strasbourg Hotel 2",
+    "address": "2 Rue des Grandes Arcades, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 2,
+    "pricePerNight": 201.6
+  },
+  {
+    "name": "Strasbourg Hotel 3",
+    "address": "3 Rue du Vieux-March\u00e9-aux-Poissons, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 3,
+    "pricePerNight": 252.0
+  },
+  {
+    "name": "Strasbourg Hotel 4",
+    "address": "4 Rue des Juifs, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 4,
+    "pricePerNight": 302.4
+  },
+  {
+    "name": "Strasbourg Hotel 5",
+    "address": "5 Rue de la Nu\u00e9e-Bleue, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 5,
+    "pricePerNight": 352.8
+  },
+  {
+    "name": "Strasbourg Hotel 6",
+    "address": "6 Rue du Faubourg-National, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 1,
+    "pricePerNight": 151.2
+  },
+  {
+    "name": "Strasbourg Hotel 7",
+    "address": "7 Quai des Bateliers, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 2,
+    "pricePerNight": 201.6
+  },
+  {
+    "name": "Strasbourg Hotel 8",
+    "address": "8 Avenue de la For\u00eat-Noire, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 3,
+    "pricePerNight": 252.0
+  },
+  {
+    "name": "Strasbourg Hotel 9",
+    "address": "9 Rue des Orf\u00e8vres, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 4,
+    "pricePerNight": 302.4
+  },
+  {
+    "name": "Strasbourg Hotel 10",
+    "address": "10 Boulevard de la Victoire, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 5,
+    "pricePerNight": 352.8
+  },
+  {
+    "name": "Strasbourg Hotel 11",
+    "address": "11 Place Kl\u00e9ber, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 1,
+    "pricePerNight": 151.2
+  },
+  {
+    "name": "Strasbourg Hotel 12",
+    "address": "12 Rue des Grandes Arcades, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 2,
+    "pricePerNight": 201.6
+  },
+  {
+    "name": "Strasbourg Hotel 13",
+    "address": "13 Rue du Vieux-March\u00e9-aux-Poissons, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 3,
+    "pricePerNight": 252.0
+  },
+  {
+    "name": "Strasbourg Hotel 14",
+    "address": "14 Rue des Juifs, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 4,
+    "pricePerNight": 302.4
+  },
+  {
+    "name": "Strasbourg Hotel 15",
+    "address": "15 Rue de la Nu\u00e9e-Bleue, Strasbourg",
+    "city": "Strasbourg",
+    "stars": 5,
+    "pricePerNight": 352.8
+  },
+  {
+    "name": "Lille Hotel 1",
+    "address": "1 Place du G\u00e9n\u00e9ral de Gaulle, Lille",
+    "city": "Lille",
+    "stars": 1,
+    "pricePerNight": 118.8
+  },
+  {
+    "name": "Lille Hotel 2",
+    "address": "2 Rue de B\u00e9thune, Lille",
+    "city": "Lille",
+    "stars": 2,
+    "pricePerNight": 158.4
+  },
+  {
+    "name": "Lille Hotel 3",
+    "address": "3 Rue Neuve, Lille",
+    "city": "Lille",
+    "stars": 3,
+    "pricePerNight": 198.0
+  },
+  {
+    "name": "Lille Hotel 4",
+    "address": "4 Boulevard de la Libert\u00e9, Lille",
+    "city": "Lille",
+    "stars": 4,
+    "pricePerNight": 237.6
+  },
+  {
+    "name": "Lille Hotel 5",
+    "address": "5 Rue Faidherbe, Lille",
+    "city": "Lille",
+    "stars": 5,
+    "pricePerNight": 277.2
+  },
+  {
+    "name": "Lille Hotel 6",
+    "address": "6 Place Rihour, Lille",
+    "city": "Lille",
+    "stars": 1,
+    "pricePerNight": 118.8
+  },
+  {
+    "name": "Lille Hotel 7",
+    "address": "7 Avenue du Peuple Belge, Lille",
+    "city": "Lille",
+    "stars": 2,
+    "pricePerNight": 158.4
+  },
+  {
+    "name": "Lille Hotel 8",
+    "address": "8 Rue L\u00e9on Gambetta, Lille",
+    "city": "Lille",
+    "stars": 3,
+    "pricePerNight": 198.0
+  },
+  {
+    "name": "Lille Hotel 9",
+    "address": "9 Rue Nationale, Lille",
+    "city": "Lille",
+    "stars": 4,
+    "pricePerNight": 237.6
+  },
+  {
+    "name": "Lille Hotel 10",
+    "address": "10 Rue Esquermoise, Lille",
+    "city": "Lille",
+    "stars": 5,
+    "pricePerNight": 277.2
+  },
+  {
+    "name": "Lille Hotel 11",
+    "address": "11 Place du G\u00e9n\u00e9ral de Gaulle, Lille",
+    "city": "Lille",
+    "stars": 1,
+    "pricePerNight": 118.8
+  },
+  {
+    "name": "Lille Hotel 12",
+    "address": "12 Rue de B\u00e9thune, Lille",
+    "city": "Lille",
+    "stars": 2,
+    "pricePerNight": 158.4
+  },
+  {
+    "name": "Lille Hotel 13",
+    "address": "13 Rue Neuve, Lille",
+    "city": "Lille",
+    "stars": 3,
+    "pricePerNight": 198.0
+  },
+  {
+    "name": "Lille Hotel 14",
+    "address": "14 Boulevard de la Libert\u00e9, Lille",
+    "city": "Lille",
+    "stars": 4,
+    "pricePerNight": 237.6
+  },
+  {
+    "name": "Lille Hotel 15",
+    "address": "15 Rue Faidherbe, Lille",
+    "city": "Lille",
+    "stars": 5,
+    "pricePerNight": 277.2
+  },
+  {
+    "name": "Toulouse Hotel 1",
+    "address": "1 Place du Capitole, Toulouse",
+    "city": "Toulouse",
+    "stars": 1,
+    "pricePerNight": 169.2
+  },
+  {
+    "name": "Toulouse Hotel 2",
+    "address": "2 Rue d'Alsace-Lorraine, Toulouse",
+    "city": "Toulouse",
+    "stars": 2,
+    "pricePerNight": 225.6
+  },
+  {
+    "name": "Toulouse Hotel 3",
+    "address": "3 Rue de Metz, Toulouse",
+    "city": "Toulouse",
+    "stars": 3,
+    "pricePerNight": 282.0
+  },
+  {
+    "name": "Toulouse Hotel 4",
+    "address": "4 Boulevard Lazare Carnot, Toulouse",
+    "city": "Toulouse",
+    "stars": 4,
+    "pricePerNight": 338.4
+  },
+  {
+    "name": "Toulouse Hotel 5",
+    "address": "5 Rue Saint-Rome, Toulouse",
+    "city": "Toulouse",
+    "stars": 5,
+    "pricePerNight": 394.8
+  },
+  {
+    "name": "Toulouse Hotel 6",
+    "address": "6 Rue Gambetta, Toulouse",
+    "city": "Toulouse",
+    "stars": 1,
+    "pricePerNight": 169.2
+  },
+  {
+    "name": "Toulouse Hotel 7",
+    "address": "7 All\u00e9es Jean-Jaur\u00e8s, Toulouse",
+    "city": "Toulouse",
+    "stars": 2,
+    "pricePerNight": 225.6
+  },
+  {
+    "name": "Toulouse Hotel 8",
+    "address": "8 Rue du Taur, Toulouse",
+    "city": "Toulouse",
+    "stars": 3,
+    "pricePerNight": 282.0
+  },
+  {
+    "name": "Toulouse Hotel 9",
+    "address": "9 Rue des Lois, Toulouse",
+    "city": "Toulouse",
+    "stars": 4,
+    "pricePerNight": 338.4
+  },
+  {
+    "name": "Toulouse Hotel 10",
+    "address": "10 Place Saint-Pierre, Toulouse",
+    "city": "Toulouse",
+    "stars": 5,
+    "pricePerNight": 394.8
+  },
+  {
+    "name": "Toulouse Hotel 11",
+    "address": "11 Place du Capitole, Toulouse",
+    "city": "Toulouse",
+    "stars": 1,
+    "pricePerNight": 169.2
+  },
+  {
+    "name": "Toulouse Hotel 12",
+    "address": "12 Rue d'Alsace-Lorraine, Toulouse",
+    "city": "Toulouse",
+    "stars": 2,
+    "pricePerNight": 225.6
+  },
+  {
+    "name": "Toulouse Hotel 13",
+    "address": "13 Rue de Metz, Toulouse",
+    "city": "Toulouse",
+    "stars": 3,
+    "pricePerNight": 282.0
+  },
+  {
+    "name": "Toulouse Hotel 14",
+    "address": "14 Boulevard Lazare Carnot, Toulouse",
+    "city": "Toulouse",
+    "stars": 4,
+    "pricePerNight": 338.4
+  },
+  {
+    "name": "Toulouse Hotel 15",
+    "address": "15 Rue Saint-Rome, Toulouse",
+    "city": "Toulouse",
+    "stars": 5,
+    "pricePerNight": 394.8
+  }
+]
