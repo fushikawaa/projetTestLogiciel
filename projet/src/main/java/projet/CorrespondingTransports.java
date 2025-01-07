@@ -7,7 +7,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import projet.enums.*;
@@ -160,6 +159,14 @@ public class CorrespondingTransports {
             }
         }
         return preferredTravels;
+    }
+
+    public void setTransports(List<Transport> transports){
+        this.transports = transports;
+    }
+
+    public List<Transport> getTransports(){
+        return this.transports;
     }
 }
 
