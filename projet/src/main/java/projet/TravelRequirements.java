@@ -11,15 +11,17 @@ public class TravelRequirements {
     private long departureDate;
     private long endDate;
     private BigDecimal activityDistance;
+    private BigDecimal budget;
 
     // Constructor
-    public TravelRequirements(String departureCity, String travelCity, String finalCity, long departureDate, long endDate, BigDecimal activityDistance) {
+    public TravelRequirements(String departureCity, String travelCity, String finalCity, long departureDate, long endDate, BigDecimal activityDistance, BigDecimal budget) {
         this.departureCity = departureCity;
         this.travelCity = travelCity;
         this.finalCity = finalCity;
         this.departureDate = departureDate;
         this.endDate = endDate;
         this.activityDistance = activityDistance;
+        this.budget = budget;
     }
 
     // Getters and Setters
@@ -70,5 +72,13 @@ public class TravelRequirements {
 
     public void setActivityDistance(BigDecimal activityDistance) {
         this.activityDistance = activityDistance;
+    }
+
+    public BigDecimal getBudget() {
+        return budget;
+    }
+
+    public void setBudget(BigDecimal budget) {
+        this.budget = budget;
     }
 }
