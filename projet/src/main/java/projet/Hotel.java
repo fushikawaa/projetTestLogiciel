@@ -9,6 +9,14 @@ public class Hotel {
     private int stars;
     private BigDecimal pricePerNight;
 
+    public Hotel(String name, String address, String city, int stars, BigDecimal pricePerNight) {
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.stars = stars;
+        this.pricePerNight = pricePerNight;
+    }
+
     // Getters and setters
     public String getName() {
         return name;
