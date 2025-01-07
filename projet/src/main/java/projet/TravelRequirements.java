@@ -12,15 +12,21 @@ public class TravelRequirements {
     private LocalDateTime departureDate;
     private LocalDateTime endDate;
     private BigDecimal activityDistance;
+    private BigDecimal budget;
 
     // Constructor
+<<<<<<< HEAD
     public TravelRequirements(String departureCity, String travelCity, String finalCity, LocalDateTime departureDate, LocalDateTime endDate, BigDecimal activityDistance) {
+=======
+    public TravelRequirements(String departureCity, String travelCity, String finalCity, LocalDateTime departureDate, LocalDateTime endDate, BigDecimal activityDistance, BigDecimal budget) {
+>>>>>>> refs/remotes/origin/main
         this.departureCity = departureCity;
         this.travelCity = travelCity;
         this.finalCity = finalCity;
         this.departureDate = departureDate;
         this.endDate = endDate;
         this.activityDistance = activityDistance;
+        this.budget = budget;
     }
 
     // Getters and Setters
@@ -71,5 +77,13 @@ public class TravelRequirements {
 
     public void setActivityDistance(BigDecimal activityDistance) {
         this.activityDistance = activityDistance;
+    }
+
+    public BigDecimal getBudget() {
+        return budget;
+    }
+
+    public void setBudget(BigDecimal budget) {
+        this.budget = budget;
     }
 }
