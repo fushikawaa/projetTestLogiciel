@@ -1,18 +1,18 @@
 package projet;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import projet.enums.PrivilegedHotel;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.ArrayList;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import projet.enums.PrivilegedHotel;
 
 public class CorrespondingHotels {
     private List<Hotel> correspondingHotels;
@@ -121,5 +121,9 @@ public class CorrespondingHotels {
                 .filter(hotel -> hotel.getPricePerNight().compareTo(minPrice) == 0)
                 .collect(Collectors.toList());
         }
+    }
+
+    public void setCorrespondingHotels(List<Hotel> hotels){
+        this.correspondingHotels = hotels;
     }
 }

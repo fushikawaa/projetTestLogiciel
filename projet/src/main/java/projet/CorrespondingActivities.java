@@ -133,4 +133,12 @@ public class CorrespondingActivities {
 
         return EARTH_RADIUS * c; // Distance en kilomètres
     }
+
+    public void setActivities(List<Activity> activities){
+        this.activities = activities;
+    }
+
+    public List<Activity> getActivities(){
+        return this.activities;
+    }
 }

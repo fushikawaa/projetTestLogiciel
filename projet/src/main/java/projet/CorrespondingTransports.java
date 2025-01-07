@@ -160,6 +160,14 @@ public class CorrespondingTransports {
         }
         return preferredTravels;
     }
+
+    public void setTransports(List<Transport> transports){
+        this.transports = transports;
+    }
+
+    public List<Transport> getTransports(){
+        return this.transports;
+    }
 }
 
 
