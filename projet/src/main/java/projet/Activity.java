@@ -1,6 +1,7 @@
 package projet;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import projet.enums.ActivityType;
 
@@ -8,10 +9,10 @@ public class Activity {
     private String name;
     private ActivityType category;
     private String address;
-    private long date;
+    private LocalDateTime date;
     private BigDecimal price;
 
-    public Activity(String name, ActivityType category, String address, long date, BigDecimal price) {
+    public Activity(String name, ActivityType category, String address, LocalDateTime date, BigDecimal price) {
         this.name = name;
         this.category = category;
         this.address = address;
@@ -31,7 +32,7 @@ public class Activity {
         return this.address;
     }
 
-    public long getDate() {
+    public LocalDateTime getDate() {
         return this.date;
     }
 
@@ -51,7 +52,7 @@ public class Activity {
         this.address = address;
     }
 
-    public void setDate(long date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
