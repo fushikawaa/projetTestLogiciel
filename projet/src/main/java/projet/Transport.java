@@ -2,19 +2,20 @@ package projet;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 import projet.enums.TransportType;
 
 public class Transport {
     private String departureCity;
     private String destinationCity;
-    private Instant departureDateTime;
-    private Instant destinationDateTime;
+    private LocalDateTime departureDateTime;
+    private LocalDateTime destinationDateTime;
     private BigDecimal price;
     private TransportType type;
 
 
-    public Transport(String departureCity, String destinationCity, Instant departureDateTime, Instant destinationDateTime,BigDecimal price, TransportType type ){
+    public Transport(String departureCity, String destinationCity, LocalDateTime departureDateTime, LocalDateTime destinationDateTime,BigDecimal price, TransportType type ){
         setDepartureCity(departureCity);
         setDestinationCity(destinationCity);
         setDepartureDateTime(departureDateTime);
@@ -39,19 +40,19 @@ public class Transport {
         this.destinationCity = destinationCity;
     }
     
-    public Instant getDepartureDateTime() {
+    public LocalDateTime getDepartureDateTime() {
         return departureDateTime;
     }
     
-    public void setDepartureDateTime(Instant departureDateTime) {
+    public void setDepartureDateTime(LocalDateTime departureDateTime) {
         this.departureDateTime = departureDateTime;
     }
     
-    public Instant getDestinationDateTime() {
+    public LocalDateTime getDestinationDateTime() {
         return destinationDateTime;
     }
     
-    public void setDestinationDateTime(Instant destinationDateTime) {
+    public void setDestinationDateTime(LocalDateTime destinationDateTime) {
         this.destinationDateTime = destinationDateTime;
     }
     

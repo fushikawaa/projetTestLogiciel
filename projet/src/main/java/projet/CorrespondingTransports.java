@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -36,18 +37,15 @@ public class CorrespondingTransports {
         }
     }
 
-    public ArrayList<ArrayList<Transport>> findTransports(UserPreferences user, TravelRequirements travel) {
+    public ArrayList<ArrayList<Transport>> findTransports(UserPreferences user, String departure, String destination, LocalDateTime departureDate, BigDecimal budget) {
         ArrayList<ArrayList<Transport>> correspondingTransports = new ArrayList<ArrayList<Transport>>();
-        String destination = travel.getFinalCity();
-        String departure = travel.getDepartureCity();
         TransportType transportType = user.getFavoriteTransport();
-        LocalDateTime departureDate = travel.getDepartureDate();
 
         //Transports qui vont au bon endroit le bon jour
         ArrayList<Transport> goodDestination = new ArrayList<Transport>();
         for (Transport transport : this.transports) {
             LocalDateTime transportDate = transport.getDestinationDateTime();
-            if (transport.getDestinationCity().equals(destination) && transportDate.toLocalDate().equals(departureDate.toLocalDate())) {
+            if (transport.getDestinationCity().equals(destination) && transportDate.toLocalDate().equals(departureDate.toLocalDate()) && transport.getPrice().compareTo(budget) < 0) {
                 if (transport.getType() == null) {
                     goodDestination.add(transport);
                 } else {
@@ -69,17 +67,20 @@ public class CorrespondingTransports {
                 TransportType firstTransportType = transport.getType();
                 String stopover = transport.getDepartureCity();
                 for (Transport secondTransport : this.transports) {
-                    LocalDate secondTransportDate = secondTransport.getDepartureDateTime();
+                    LocalDateTime secondTransportDate = secondTransport.getDepartureDateTime();
                     TransportType secondTransportType = secondTransport.getType();
                     //vérification de l'homogénéité des transports
                     if (secondTransportType == firstTransportType) {
                         //on vérifie le jour, que les heures correspondent et que les villes correspondent)
                         if (secondTransportDate.toLocalDate().equals(departureDate.toLocalDate()) && secondTransport.getDestinationDateTime().isBefore(transport.getDepartureDateTime().minusMinutes(10))
                                 && secondTransport.getDepartureCity().equals(departure) && secondTransport.getDestinationCity().equals(stopover)) {
-                            ArrayList<Transport> fullTransport = new ArrayList<Transport>();
-                            fullTransport.add(secondTransport);
-                            fullTransport.add(transport);
-                            correspondingTransports.add(fullTransport);
+                            //on vérifie que le budget ne dépasse pas
+                            if (secondTransport.getPrice().add(transport.getPrice()).compareTo(budget) < 0) {
+                                ArrayList<Transport> fullTransport = new ArrayList<Transport>();
+                                fullTransport.add(secondTransport);
+                                fullTransport.add(transport);
+                                correspondingTransports.add(fullTransport);
+                            }
                         }
                     }
                 }
