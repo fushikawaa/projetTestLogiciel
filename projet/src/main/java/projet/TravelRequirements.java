@@ -2,7 +2,6 @@ package projet;
 
 // Definition of the TravelRequirements class
 import java.math.BigDecimal;
-import java.time.Instant;
 
 public class TravelRequirements {
 

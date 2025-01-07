@@ -2,14 +2,16 @@ package projet;
 
 import java.math.BigDecimal;
 
+import projet.enums.ActivityType;
+
 public class Activity {
     private String name;
-    private String category;
+    private ActivityType category;
     private String address;
     private long date;
     private BigDecimal price;
 
-    public Activity(String name, String category, String address, long date, BigDecimal price) {
+    public Activity(String name, ActivityType category, String address, long date, BigDecimal price) {
         this.name = name;
         this.category = category;
         this.address = address;
@@ -21,7 +23,7 @@ public class Activity {
         return this.name;
     }
 
-    public String getCategory() {
+    public ActivityType getCategory() {
         return this.category;
     }
 
@@ -41,7 +43,7 @@ public class Activity {
         this.name = name;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(ActivityType category) {
         this.category = category;
     }
 
