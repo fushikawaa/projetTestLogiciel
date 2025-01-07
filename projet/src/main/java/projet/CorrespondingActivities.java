@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.math.BigDecimal;
 import java.util.*;
 
+import projet.enums.ActivityType;
+
 public class CorrespondingActivities {
     private String activityCsvPath;
     private List<Activity> activities;
@@ -34,11 +36,11 @@ public class CorrespondingActivities {
                     continue;
                 }
 
-                
+                ActivityType type = ActivityType.valueOf(values[1].toUpperCase());
                 long ts = Long.valueOf(values[3]);
                 BigDecimal price = new BigDecimal(values[4]);
 
-                Activity activity = new Activity(values[0], values[1], values[2], ts, price);                
+                Activity activity = new Activity(values[0], type, values[2], ts, price);                
                 activities.add(activity);
             }
         } catch (Exception e) {

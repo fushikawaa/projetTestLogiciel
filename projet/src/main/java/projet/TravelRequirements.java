@@ -9,12 +9,12 @@ public class TravelRequirements {
     private String departureCity;
     private String travelCity;
     private String finalCity;
-    private Instant departureDate;
-    private Instant endDate;
+    private long departureDate;
+    private long endDate;
     private BigDecimal activityDistance;
 
     // Constructor
-    public TravelRequirements(String departureCity, String travelCity, String finalCity, Instant departureDate, Instant endDate, BigDecimal activityDistance) {
+    public TravelRequirements(String departureCity, String travelCity, String finalCity, long departureDate, long endDate, BigDecimal activityDistance) {
         this.departureCity = departureCity;
         this.travelCity = travelCity;
         this.finalCity = finalCity;
@@ -49,19 +49,19 @@ public class TravelRequirements {
         this.finalCity = finalCity;
     }
 
-    public Instant getDepartureDate() {
+    public long getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(Instant departureDate) {
+    public void setDepartureDate(long departureDate) {
         this.departureDate = departureDate;
     }
 
-    public Instant getEndDate() {
+    public long getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Instant endDate) {
+    public void setEndDate(long endDate) {
         this.endDate = endDate;
     }
 
