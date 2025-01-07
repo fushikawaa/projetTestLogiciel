@@ -1,69 +1,50 @@
 package projet;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.*;
 
-import projet.enums.ActivityType;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 public class CorrespondingActivities {
-    private String activityCsvPath;
+    private String activityJsonPath;
     private List<Activity> activities;
     private Hotel hotel;
 
     public CorrespondingActivities(String path) {
-        this.activityCsvPath = path;
+        this.activityJsonPath = path;
         this.activities = new ArrayList<>();
     }
 
     public void getAllActivity() {
 
-        String line;
-        try (BufferedReader br = new BufferedReader(new FileReader(this.activityCsvPath))) {
+        try {
+        ObjectMapper objectMapper = new ObjectMapper();
 
-            String header = br.readLine();
-            if (header == null) {
-                throw new IllegalArgumentException("Le fichier est vide ou incorrect.");
-            }
+        List<Activity> activityList = objectMapper.readValue(new File(this.activityJsonPath), new TypeReference<List<Activity>>() {});
 
-            // Parcourir chaque ligne
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
+        activities.addAll(activityList);
 
-                if (values.length != 5) {
-                    System.out.println("Erreur: Ligne invalide, ignorée: " + line);
-                    continue;
-                }
-
-                ActivityType type = ActivityType.valueOf(values[1].toUpperCase());
-                long ts = Long.valueOf(values[3]);
-                BigDecimal price = new BigDecimal(values[4]);
-
-                Activity activity = new Activity(values[0], type, values[2], ts, price);                
-                activities.add(activity);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 
     } 
 
-    public List<Activity> findActivities(UserPreferences userPreferences, TravelRequirements travelRequirements) {
+    public List<Activity> findActivities(UserPreferences userPreferences, TravelRequirements travelRequirements, BigDecimal budget) {
         List<Activity> goodActivities = new ArrayList<>();
 
         for(Activity activity : activities) {
-            if(activity.getDate() > travelRequirements.getDepartureDate() 
-            && activity.getDate() < travelRequirements.getEndDate()
+            if(activity.getDate().isAfter(travelRequirements.getDepartureDate()) 
+            && activity.getDate().isBefore(travelRequirements.getEndDate())
             && (activity.getCategory() == userPreferences.getPreferedActivity()
-            || activity.getCategory() == userPreferences.getSecondActivity())) {
+            || activity.getCategory() == userPreferences.getSecondActivity())
+            && activity.getPrice().compareTo(budget) <= 0) {
 
                 goodActivities.add(activity);
-
             }
         }
-
-
 
         return goodActivities;
     }

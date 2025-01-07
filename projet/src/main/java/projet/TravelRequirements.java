@@ -2,18 +2,19 @@ package projet;
 
 // Definition of the TravelRequirements class
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class TravelRequirements {
 
     private String departureCity;
     private String travelCity;
     private String finalCity;
-    private long departureDate;
-    private long endDate;
+    private LocalDateTime departureDate;
+    private LocalDateTime endDate;
     private BigDecimal activityDistance;
 
     // Constructor
-    public TravelRequirements(String departureCity, String travelCity, String finalCity, long departureDate, long endDate, BigDecimal activityDistance) {
+    public TravelRequirements(String departureCity, String travelCity, String finalCity, LocalDateTime departureDate, LocalDateTime endDate, BigDecimal activityDistance) {
         this.departureCity = departureCity;
         this.travelCity = travelCity;
         this.finalCity = finalCity;
@@ -48,19 +49,19 @@ public class TravelRequirements {
         this.finalCity = finalCity;
     }
 
-    public long getDepartureDate() {
+    public LocalDateTime getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(long departureDate) {
+    public void setDepartureDate(LocalDateTime departureDate) {
         this.departureDate = departureDate;
     }
 
-    public long getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(long endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 
