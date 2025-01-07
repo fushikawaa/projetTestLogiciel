@@ -15,7 +15,7 @@ public class TravelRequirements {
     private BigDecimal budget;
 
     // Constructor
-    public TravelRequirements(String departureCity, String travelCity, String finalCity, long departureDate, long endDate, BigDecimal activityDistance, BigDecimal budget) {
+    public TravelRequirements(String departureCity, String travelCity, String finalCity, LocalDateTime departureDate, LocalDateTime endDate, BigDecimal activityDistance, BigDecimal budget) {
         this.departureCity = departureCity;
         this.travelCity = travelCity;
         this.finalCity = finalCity;
