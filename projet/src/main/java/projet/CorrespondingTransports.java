@@ -41,13 +41,13 @@ public class CorrespondingTransports {
         String destination = travel.getFinalCity();
         String departure = travel.getDepartureCity();
         TransportType transportType = user.getFavoriteTransport();
-        LocalDate departureDate = travel.getDepartureDate().atZone(ZoneId.of("Europe/Paris")).toLocalDate();
+        LocalDateTime departureDate = travel.getDepartureDate();
 
         //Transports qui vont au bon endroit le bon jour
         ArrayList<Transport> goodDestination = new ArrayList<Transport>();
         for (Transport transport : this.transports) {
-            LocalDate transportDate = transport.getDestinationDateTime().atZone(ZoneId.of("Europe/Paris")).toLocalDate();
-            if (transport.getDestinationCity().equals(destination) && transportDate.isEqual(departureDate)) {
+            LocalDateTime transportDate = transport.getDestinationDateTime();
+            if (transport.getDestinationCity().equals(destination) && transportDate.toLocalDate().equals(departureDate.toLocalDate())) {
                 if (transport.getType() == null) {
                     goodDestination.add(transport);
                 } else {
@@ -58,6 +58,7 @@ public class CorrespondingTransports {
             }
         }
 
+
         //Ajout du transport s'il y a une escale disponible ou si ça correspond déjà
         for (Transport transport : goodDestination) {
             if (transport.getDepartureCity().equals(departure)) {
@@ -65,13 +66,15 @@ public class CorrespondingTransports {
                 fullTransport.add(transport);
                 correspondingTransports.add(fullTransport);
             } else {
+                TransportType firstTransportType = transport.getType();
                 String stopover = transport.getDepartureCity();
                 for (Transport secondTransport : this.transports) {
-                    LocalDate secondTransportDate = secondTransport.getDepartureDateTime().atZone(ZoneId.of("Europe/Paris")).toLocalDate();
+                    LocalDate secondTransportDate = secondTransport.getDepartureDateTime();
                     TransportType secondTransportType = secondTransport.getType();
-                    if (transportType == null || secondTransportType == transportType) {
+                    //vérification de l'homogénéité des transports
+                    if (secondTransportType == firstTransportType) {
                         //on vérifie le jour, que les heures correspondent et que les villes correspondent)
-                        if (secondTransportDate.isEqual(departureDate) && secondTransport.getDestinationDateTime().isBefore(transport.getDepartureDateTime().minusSeconds(600))
+                        if (secondTransportDate.toLocalDate().equals(departureDate.toLocalDate()) && secondTransport.getDestinationDateTime().isBefore(transport.getDepartureDateTime().minusMinutes(10))
                                 && secondTransport.getDepartureCity().equals(departure) && secondTransport.getDestinationCity().equals(stopover)) {
                             ArrayList<Transport> fullTransport = new ArrayList<Transport>();
                             fullTransport.add(secondTransport);
@@ -83,15 +86,23 @@ public class CorrespondingTransports {
             }
         }
 
+
         //Prise en compte des préférences s'il y en a
         if (!correspondingTransports.isEmpty()) {
             PrivilegedTransport preferences = user.getPrivilegedTransport();
             if (preferences == PrivilegedTransport.PRIX_MINIMUM) {
                 correspondingTransports = findTransportsWithMinimumPrice(correspondingTransports);
+                //si plusieurs choix encore possibles, utiliser le second critère
+                if (correspondingTransports.size() > 1){
+                    correspondingTransports = findTransportsWithMinimumDuration(correspondingTransports);
+                }
             }
 
             else if (preferences == PrivilegedTransport.DUREE_MINIMUM) {
                 correspondingTransports = findTransportsWithMinimumDuration(correspondingTransports);
+                if (correspondingTransports.size() > 1){
+                    correspondingTransports = findTransportsWithMinimumPrice(correspondingTransports);
+                }
             }
         }
 
@@ -102,6 +113,7 @@ public class CorrespondingTransports {
     private ArrayList<ArrayList<Transport>> findTransportsWithMinimumPrice(ArrayList<ArrayList<Transport>> correspondingTransports) {
         BigDecimal minPrice = BigDecimal.ZERO;
         ArrayList<ArrayList<Transport>> preferredTravels = new ArrayList<ArrayList<Transport>>();
+
         //initialisation du prix minimal au prix du premier ensemble de transports
         for (Transport transport : correspondingTransports.get(0)) {
             minPrice = minPrice.add(transport.getPrice());
