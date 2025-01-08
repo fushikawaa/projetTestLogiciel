@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Paris Hotel 1",
+      "address": "1 Avenue des Champs-Élysées, Paris",
+      "city": "Paris",
+      "stars": 1,
+      "pricePerNight": 315.0
+    },
+    {
+        "name": "Paris Hotel 3",
+        "address": "3 Boulevard Haussmann, Paris",
+        "city": "Paris",
+        "stars": 3,
+        "pricePerNight": 525.0
+      },
+    {
+        "name": "Bordeaux Hotel 1",
+        "address": "1 Place de la Bourse, Bordeaux",
+        "city": "Bordeaux",
+        "stars": 4,
+        "pricePerNight": 226.2
+      },
+      {
+        "name": "Marseille Hotel 1",
+        "address": "1 Vieux Port, Marseille",
+        "city": "Marseille",
+        "stars": 2,
+        "pricePerNight": 187.2
+      },
+      {
+        "name": "Lyon Hotel 6",
+        "address": "6 Quai Saint-Antoine, Lyon",
+        "city": "Lyon",
+        "stars": 3,
+        "pricePerNight": 247.8
+      },
+      {
+        "name": "Lyon Hotel 7",
+        "address": "7 Rue de Sèze, Lyon",
+        "city": "Lyon",
+        "stars": 4,
+        "pricePerNight": 330.4
+      },
+    {
+        "name": "Lyon Hotel 8",
+        "address": "8 Place des Terreaux, Lyon",
+        "city": "Lyon",
+        "stars": 3,
+        "pricePerNight": 413.0
+    }
+]
