@@ -15,20 +15,17 @@ import projet.enums.*;
 public class CorrespondingTransports {
     private List<Transport> transports;
     private final String transportCsvPath;
+    private final FileManager fileManager;
 
-    public CorrespondingTransports(String path) {
+    public CorrespondingTransports(String path, FileManager fileManager) {
         this.transports = new ArrayList<Transport>();
         this.transportCsvPath = path;
+        this.fileManager = fileManager;
     }
 
     public void getAllTransport() {
         try {
-            File file = new File(this.transportCsvPath);
-
-            ObjectMapper mapper = new ObjectMapper();
-            List<Transport> transportsList = mapper.readValue(file, new TypeReference<List<Transport>>() {
-            });
-            this.transports = transportsList;
+            this.transports = fileManager.getAllElements(transportCsvPath, new TypeReference<List<Transport>>() {});
         } catch (IOException e) {
             e.printStackTrace();
         }
