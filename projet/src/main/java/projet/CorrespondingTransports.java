@@ -1,13 +1,11 @@
 package projet;
 
-import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import projet.enums.*;
 
@@ -15,20 +13,18 @@ import projet.enums.*;
 public class CorrespondingTransports {
     private List<Transport> transports;
     private final String transportCsvPath;
+    private final FileManager fileManager;
 
-    public CorrespondingTransports(String path) {
+    public CorrespondingTransports(String path, FileManager fileManager) {
         this.transports = new ArrayList<Transport>();
         this.transportCsvPath = path;
+        this.fileManager = fileManager;
+        getAllTransport();
     }
 
     public void getAllTransport() {
         try {
-            File file = new File(this.transportCsvPath);
-
-            ObjectMapper mapper = new ObjectMapper();
-            List<Transport> transportsList = mapper.readValue(file, new TypeReference<List<Transport>>() {
-            });
-            this.transports = transportsList;
+            this.transports = fileManager.getAllElements(transportCsvPath, new TypeReference<List<Transport>>() {});
         } catch (IOException e) {
             e.printStackTrace();
             
