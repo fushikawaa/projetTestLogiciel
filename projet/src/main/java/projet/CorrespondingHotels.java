@@ -2,42 +2,30 @@ package projet;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import projet.enums.PrivilegedHotel;
 
 public class CorrespondingHotels {
     private List<Hotel> correspondingHotels;
     private String jsonPath;
+    private FileManager fileManager;
 
-    public CorrespondingHotels(String jsonPath) {
+    public CorrespondingHotels(String jsonPath, FileManager fileManager) throws IOException {
         this.jsonPath = jsonPath;
+        this.fileManager = fileManager;
         correspondingHotels = new ArrayList<>();
-    }
-
-    // Méthode pour charger les hôtels depuis le fichier JSON
-    private void loadHotelsFromJson() {
-        Gson gson = new Gson();
-        try {
-            String jsonContent = new String(Files.readAllBytes(Paths.get(jsonPath)));
-            correspondingHotels = gson.fromJson(jsonContent, new TypeToken<List<Hotel>>() {}.getType());
-        } catch (IOException e) {
-            System.err.println("Erreur lors de la lecture du fichier JSON : " + e.getMessage());
-        }
+        getAllHotels();
     }
 
     // Méthode pour récupérer tous les hôtels
-    public List<Hotel> getAllHotels() {
-        loadHotelsFromJson();
-        return correspondingHotels;
+    public void getAllHotels() throws IOException {
+        correspondingHotels = fileManager.getAllElements(jsonPath, new TypeReference<List<Hotel>>(){});
     }
 
     public List<Hotel> getCorrespondingHotels() {
@@ -46,7 +34,6 @@ public class CorrespondingHotels {
 
     // Méthode pour récupérer les hôtels correspondant aux préférences de l'utilisateur
     public List<Hotel> findHotels(UserPreferences userPreferences, TravelRequirements travel, BigDecimal budget) {
-        loadHotelsFromJson();
 
         // Pour garder uniquement les hôtels respectant les conditions
         BigDecimal daysBetween;
