@@ -16,7 +16,7 @@ public class CorrespondingHotels {
     private String jsonPath;
     private FileManager fileManager;
 
-    public CorrespondingHotels(String jsonPath, FileManager fileManager) throws IOException {
+    public CorrespondingHotels(String jsonPath, FileManager fileManager) {
         this.jsonPath = jsonPath;
         this.fileManager = fileManager;
         correspondingHotels = new ArrayList<>();
@@ -24,8 +24,12 @@ public class CorrespondingHotels {
     }
 
     // Méthode pour récupérer tous les hôtels
-    public void getAllHotels() throws IOException {
-        correspondingHotels = fileManager.getAllElements(jsonPath, new TypeReference<List<Hotel>>(){});
+    public void getAllHotels() {
+        try {
+            correspondingHotels = fileManager.getAllElements(jsonPath, new TypeReference<List<Hotel>>(){});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Hotel> getCorrespondingHotels() {
