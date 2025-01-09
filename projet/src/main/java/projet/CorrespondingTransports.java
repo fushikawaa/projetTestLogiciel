@@ -1,13 +1,11 @@
 package projet;
 
-import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import projet.enums.*;
 
@@ -21,6 +19,7 @@ public class CorrespondingTransports {
         this.transports = new ArrayList<Transport>();
         this.transportCsvPath = path;
         this.fileManager = fileManager;
+        getAllTransport();
     }
 
     public void getAllTransport() {
