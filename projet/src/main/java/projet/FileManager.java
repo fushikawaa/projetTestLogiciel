@@ -18,4 +18,10 @@ public class FileManager {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(file, typeReference);
     }
+
+    public void writeTravelsToFile(String filePath, List<Travel> travels) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), travels);
+    }
 }
