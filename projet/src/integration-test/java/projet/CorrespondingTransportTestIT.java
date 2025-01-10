@@ -1,18 +1,33 @@
 package projet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class CorrespondingTransportTestIT {
     
     @Test
-    public void getAllTransportFull() {
-        FileManager fileManager = new FileManager();
-        CorrespondingTransports correspondingTransports = new CorrespondingTransports("../../../../src/data/transports_database.json", fileManager);
+    public void getAllTransportIsFull() {
+        CorrespondingTransports correspondingTransports = new CorrespondingTransports("src/data/transports_database.json", new FileManager());
         correspondingTransports.getAllTransport();
 
         assertEquals(500, correspondingTransports.getTransports().size());
     }
 
+    @Test
+    public void getAllTransportInexistantPathIsEmpty() {
+        CorrespondingTransports correspondingTransports = new CorrespondingTransports("/fqed/", new FileManager());
+        correspondingTransports.getAllTransport();
+
+        assertTrue(correspondingTransports.getTransports().isEmpty());
+    }
+
+    @Test
+    public void getAllTransportBadPathIsEmpty() {
+        CorrespondingTransports correspondingTransports = new CorrespondingTransports("src/data/hotels_database.json", new FileManager());
+        correspondingTransports.getAllTransport();
+
+        assertTrue(correspondingTransports.getTransports().isEmpty());
+    }
 
 }

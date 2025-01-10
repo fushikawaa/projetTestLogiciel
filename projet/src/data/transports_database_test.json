@@ -1,0 +1,41 @@
+[
+    {
+        "departureCity": "Nice",
+        "destinationCity": "Toulouse",
+        "departureDateHour": "2025-01-19 05:48:00",
+        "destinationDateHour": "2025-01-19 08:22:00",
+        "price": 287.66,
+        "type": "TRAIN"
+    },
+    {
+        "departureCity": "Marseille",
+        "destinationCity": "Bordeaux",
+        "departureDateHour": "2025-12-04 00:40:00",
+        "destinationDateHour": "2025-12-04 02:49:00",
+        "price": 201.13,
+        "type": "AVION"
+    },
+    {
+        "departureCity": "Paris",
+        "destinationCity": "Toulouse",
+        "departureDateHour": "2025-11-05 09:10:00",
+        "destinationDateHour": "2025-11-05 10:28:00",
+        "price": 220.9,
+        "type": "TRAIN"
+    },
+    {
+        "departureCity": "Paris",
+        "destinationCity": "Nice",
+        "departureDateHour": "2025-03-11 03:58:00",
+        "destinationDateHour": "2025-03-11 05:53:00",
+        "price": 208.77,
+        "type": "TRAIN"
+    },
+    {
+        "departureCity": "Marseille",
+        "destinationCity": "Nice",
+        "departureDateHour": "2025-06-08 22:14:00",
+        "destinationDateHour": "2025-06-09 01:14:00",
+        "price": 35.24,
+        "type": "TRAIN"
+    }]
