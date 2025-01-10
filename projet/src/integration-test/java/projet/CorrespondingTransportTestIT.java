@@ -8,7 +8,7 @@ public class CorrespondingTransportTestIT {
     
     @Test
     public void getAllTransportIsFull() {
-        CorrespondingTransports correspondingTransports = new CorrespondingTransports("src/data/transports_database.json");
+        CorrespondingTransports correspondingTransports = new CorrespondingTransports("src/data/transports_database.json", new FileManager());
         correspondingTransports.getAllTransport();
 
         assertEquals(500, correspondingTransports.getTransports().size());
@@ -16,7 +16,7 @@ public class CorrespondingTransportTestIT {
 
     @Test
     public void getAllTransportInexistantPathIsEmpty() {
-        CorrespondingTransports correspondingTransports = new CorrespondingTransports("/fqed/");
+        CorrespondingTransports correspondingTransports = new CorrespondingTransports("/fqed/", new FileManager());
         correspondingTransports.getAllTransport();
 
         assertTrue(correspondingTransports.getTransports().isEmpty());
@@ -24,7 +24,7 @@ public class CorrespondingTransportTestIT {
 
     @Test
     public void getAllTransportBadPathIsEmpty() {
-        CorrespondingTransports correspondingTransports = new CorrespondingTransports("src/data/hotels_database.json");
+        CorrespondingTransports correspondingTransports = new CorrespondingTransports("src/data/hotels_database.json", new FileManager());
         correspondingTransports.getAllTransport();
 
         assertTrue(correspondingTransports.getTransports().isEmpty());
