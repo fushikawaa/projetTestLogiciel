@@ -7,7 +7,8 @@ public class CorrespondingTransportTestIT {
     
     @Test
     public void getAllTransportFull() {
-        CorrespondingTransports correspondingTransports = new CorrespondingTransports("../../../../src/data/transports_database.json");
+        FileManager fileManager = new FileManager();
+        CorrespondingTransports correspondingTransports = new CorrespondingTransports("../../../../src/data/transports_database.json", fileManager);
         correspondingTransports.getAllTransport();
 
         assertEquals(500, correspondingTransports.getTransports().size());
