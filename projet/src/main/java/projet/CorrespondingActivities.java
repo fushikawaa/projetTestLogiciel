@@ -1,39 +1,33 @@
 package projet;
 
-import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 
 public class CorrespondingActivities {
     private String activityJsonPath;
     private List<Activity> activities;
-    private Hotel hotel;
+    private CoordinatesManager coordinatesManager = new CoordinatesManager();
+    private FileManager fileManager;
 
-    public CorrespondingActivities(String path) {
+    public CorrespondingActivities(String path, FileManager fileManager) {
         this.activityJsonPath = path;
         this.activities = new ArrayList<>();
+        this.fileManager = fileManager;
     }
 
     public void getAllActivity() {
-
         try {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        List<Activity> activityList = objectMapper.readValue(new File(this.activityJsonPath), new TypeReference<List<Activity>>() {});
-
-        activities.addAll(activityList);
-
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-
+            activities = fileManager.getAllElements(activityJsonPath, new TypeReference<List<Activity>>(){});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     } 
 
-    public List<Activity> findActivities(UserPreferences userPreferences, TravelRequirements travelRequirements, BigDecimal budget) {
+    public List<Activity> findActivities(UserPreferences userPreferences, TravelRequirements travelRequirements, BigDecimal budget, Hotel hotel) {
         List<Activity> goodActivities = new ArrayList<>();
 
         for(Activity activity : activities) {
@@ -44,10 +38,10 @@ public class CorrespondingActivities {
             && activity.getPrice().compareTo(budget) <= 0
             ) {
                 try {
-                    double[] cooHotel = CoordinatesManager.getCoordinates(this.hotel.getAddress());
-                    double[] cooActivity = CoordinatesManager.getCoordinates(activity.getAddress());
+                    double[] cooHotel = coordinatesManager.getCoordinates(hotel.getAddress());
+                    double[] cooActivity = coordinatesManager.getCoordinates(activity.getAddress());
 
-                    BigDecimal dist = BigDecimal.valueOf(CoordinatesManager.calculateDistance(cooHotel[0], cooHotel[1], cooActivity[0], cooActivity[1]));
+                    BigDecimal dist = BigDecimal.valueOf(coordinatesManager.calculateDistance(cooHotel[0], cooHotel[1], cooActivity[0], cooActivity[1]));
 
                     if(travelRequirements.getActivityDistance().compareTo(dist) >= 0 ) {
                         goodActivities.add(activity);

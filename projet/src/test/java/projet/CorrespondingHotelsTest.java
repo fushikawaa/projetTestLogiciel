@@ -28,7 +28,7 @@ public class CorrespondingHotelsTest{
     @SuppressWarnings("unchecked")
     @Test
     public void testFindHotelsInGoodCity() throws IOException{ 
-       FileManager mockFileManager = Mockito.mock(FileManager.class);
+        FileManager mockFileManager = Mockito.mock(FileManager.class);
 
         //On simule l'utilisation de getAllElements
         ArrayList<Hotel> mocksHotels = new ArrayList<>();

@@ -9,7 +9,7 @@ import org.json.JSONObject;
 
 public class CoordinatesManager {
 
-    public static double[] getCoordinates(String address) throws Exception {
+    public double[] getCoordinates(String address) throws Exception {
         
         // Formater l'URL pour faire la requête à l'API
         String urlString = "https://geocode.maps.co/search?q=" + address.replace(" ", "%20");
@@ -56,7 +56,7 @@ public class CoordinatesManager {
         
     }
 
-    public static double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+    public double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
         final int EARTH_RADIUS = 6371; // Rayon de la Terre en kilomètres
 
         double latDistance = Math.toRadians(lat2 - lat1);

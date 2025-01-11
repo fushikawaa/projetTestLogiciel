@@ -39,7 +39,7 @@ public class CompleteTravel {
             BigDecimal daysBetween = new BigDecimal(ChronoUnit.DAYS.between(travelRequirements.getDepartureDate(), travelRequirements.getEndDate()));
             actualBudget = actualBudget.subtract(hotels.get(0).getPricePerNight().multiply(daysBetween));
             for(Hotel hotel : hotels){
-                List<Activity> activities = correspondingActivities.findActivities(userPreferences, travelRequirements, actualBudget);
+                List<Activity> activities = correspondingActivities.findActivities(userPreferences, travelRequirements, actualBudget, hotel);
                 Travel travel = new Travel(goTransports, hotel, activities, returnTransports);
                 correspondingTravels.add(travel);
             }
