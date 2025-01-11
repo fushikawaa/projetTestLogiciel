@@ -31,7 +31,7 @@ public class CompleteTravel {
             actualBudget = actualBudget.subtract(calculateTransportPrice(goTransports.get(0)));
         }
         ArrayList<ArrayList<Transport>> returnTransports = correspondingTransports.findTransports(userPreferences, travelRequirements.getTravelCity(), travelRequirements.getFinalCity(), travelRequirements.getEndDate(), actualBudget);
-        if(!goTransports.isEmpty()){
+        if(!returnTransports.isEmpty()){
             actualBudget = actualBudget.subtract(calculateTransportPrice(returnTransports.get(0)));
         }
         List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, actualBudget);
