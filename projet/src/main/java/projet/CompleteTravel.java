@@ -1,6 +1,5 @@
 package projet;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -73,12 +72,6 @@ public class CompleteTravel {
             price = price.add(transport.getPrice());
         }
         return price;
-    }
-
-    // Méthode à utiliser dans le main
-    public void writeTravelsToFile() throws IOException{
-        List<TravelErrors> travels = createTravels();
-        fileManager.writeTravelsToFile("src/result/travel.json", travels);
     }
 
     public CorrespondingTransports getCorrespondingTransports() {
