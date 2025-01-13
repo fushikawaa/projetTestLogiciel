@@ -4,6 +4,8 @@ package projet;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class TravelRequirements {
 
     private String departureCity;
@@ -15,7 +17,15 @@ public class TravelRequirements {
     private BigDecimal budget;
 
     // Constructor
-    public TravelRequirements(String departureCity, String travelCity, String finalCity, LocalDateTime departureDate, LocalDateTime endDate, BigDecimal activityDistance, BigDecimal budget) {
+    public TravelRequirements(
+        @JsonProperty("departureCity") String departureCity, 
+        @JsonProperty("travelCity") String travelCity, 
+        @JsonProperty("finalCity") String finalCity, 
+        @JsonProperty("departureDate") LocalDateTime departureDate, 
+        @JsonProperty("endDate") LocalDateTime endDate, 
+        @JsonProperty("activityDistance") BigDecimal activityDistance, 
+        @JsonProperty("budget") BigDecimal budget
+    ) {
         this.departureCity = departureCity;
         this.travelCity = travelCity;
         this.finalCity = finalCity;

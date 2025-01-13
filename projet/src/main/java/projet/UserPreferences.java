@@ -1,5 +1,7 @@
 package projet;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import projet.enums.ActivityType;
 import projet.enums.PrivilegedHotel;
 import projet.enums.PrivilegedTransport;
@@ -15,12 +17,14 @@ public class UserPreferences {
     private ActivityType secondActivity; // Peut être null
 
     // Constructeur
-    public UserPreferences(TransportType favoriteTransport, 
-                           PrivilegedTransport privilegedTransport, 
-                           int minNumberStars, 
-                           PrivilegedHotel privilegedHotel, 
-                           ActivityType preferedActivity, 
-                           ActivityType secondActivity) {
+    public UserPreferences(
+        @JsonProperty("favoriteTransport") TransportType favoriteTransport, 
+        @JsonProperty("privilegedTransport") PrivilegedTransport privilegedTransport, 
+        @JsonProperty("minNumberStars") int minNumberStars, 
+        @JsonProperty("privilegedHotel") PrivilegedHotel privilegedHotel, 
+        @JsonProperty("preferedActivity") ActivityType preferedActivity, 
+        @JsonProperty("secondActivity") ActivityType secondActivity
+    ) {
         this.favoriteTransport = favoriteTransport;
         this.privilegedTransport = privilegedTransport;
         setMinNumberStars(minNumberStars);
