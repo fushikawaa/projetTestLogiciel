@@ -6,6 +6,8 @@ public class TravelErrors {
     private Travel travel;
     private List<String> errors;
 
+    public TravelErrors(){}
+
     public TravelErrors(Travel travel, List<String> errors) {
         this.travel = travel;
         this.errors = errors;
