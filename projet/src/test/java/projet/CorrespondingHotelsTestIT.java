@@ -9,13 +9,13 @@ public class CorrespondingHotelsTestIT {
     @Test
     public void testGetAllHotels(){
         FileManager fileManager = new FileManager();
-        CorrespondingHotels correspondingHotels = new CorrespondingHotels("src/data/hotels_database.json", fileManager);
+        CorrespondingHotels correspondingHotels = new CorrespondingHotels("src/data/hotels_database_test.json", fileManager);
         
         correspondingHotels.getAllHotels();
 
         List<Hotel> allHotels = correspondingHotels.getCorrespondingHotels();
         
-        assertEquals(8, allHotels.size());
+        assertEquals(7, allHotels.size());
     }
     
     @Test
