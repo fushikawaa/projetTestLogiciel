@@ -23,16 +23,23 @@ public class CompleteTravel {
         this.fileManager = fileManager;
     }
 
-    public List<Travel> createTravels(){
-        List<Travel> correspondingTravels = new ArrayList<>();
+    public List<TravelErrors> createTravels(){
+        List<TravelErrors> correspondingTravels = new ArrayList<>();
+        List<String> errors = new ArrayList<>();
         BigDecimal actualBudget = travelRequirements.getBudget();
         ArrayList<ArrayList<Transport>> goTransports = correspondingTransports.findTransports(userPreferences, travelRequirements.getDepartureCity(), travelRequirements.getTravelCity(), travelRequirements.getDepartureDate(), actualBudget);
         if(!goTransports.isEmpty()){
             actualBudget = actualBudget.subtract(calculateTransportPrice(goTransports.get(0)));
         }
+        else{
+            errors.add("Aucun transport aller disponible pour ces villes à cette date et dans votre budget.");
+        }
         ArrayList<ArrayList<Transport>> returnTransports = correspondingTransports.findTransports(userPreferences, travelRequirements.getTravelCity(), travelRequirements.getFinalCity(), travelRequirements.getEndDate(), actualBudget);
         if(!returnTransports.isEmpty()){
             actualBudget = actualBudget.subtract(calculateTransportPrice(returnTransports.get(0)));
+        }
+        else{
+            errors.add("Aucun transport retour disponible pour ces villes à cette date et dans votre budget.");
         }
         List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, actualBudget);
         if(!hotels.isEmpty()){
@@ -41,8 +48,19 @@ public class CompleteTravel {
             for(Hotel hotel : hotels){
                 List<Activity> activities = correspondingActivities.findActivities(userPreferences, travelRequirements, actualBudget, hotel);
                 Travel travel = new Travel(goTransports, hotel, activities, returnTransports);
-                correspondingTravels.add(travel);
+                ArrayList<String> activitiesErrors = new ArrayList<>(errors); //copie errors pour éventuellement ajouter les erreurs des activités qui dépeendent de l'hôtel
+                if(activities.isEmpty()){
+                    activitiesErrors.add("Aucune activité disponible autour de cet hotel dans votre budget.");
+                }
+                TravelErrors travelErrors = new TravelErrors(travel, activitiesErrors);
+                correspondingTravels.add(travelErrors);
             }
+        }
+        else{
+            errors.add("Aucun hotel disponible dans cette ville, pour ces dates et dans votre budget");
+            Travel travel = new Travel(goTransports, null, new ArrayList<>() , returnTransports);
+            TravelErrors travelErrors = new TravelErrors(travel, errors);
+            correspondingTravels.add(travelErrors);
         }
 
 
@@ -57,8 +75,9 @@ public class CompleteTravel {
         return price;
     }
 
+    // Méthode à utiliser dans le main
     public void writeTravelsToFile() throws IOException{
-        List<Travel> travels = createTravels();
+        List<TravelErrors> travels = createTravels();
         fileManager.writeTravelsToFile("src/result/travel.json", travels);
     }
 
