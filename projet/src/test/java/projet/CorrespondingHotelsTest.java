@@ -111,7 +111,7 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
 
         List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
@@ -136,7 +136,7 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
 
         List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
@@ -161,7 +161,7 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.NOMBRE_ETOILES, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
         List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
 
@@ -186,7 +186,7 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.NOMBRE_ETOILES, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
 
 
@@ -213,7 +213,7 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
         List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
 
@@ -238,7 +238,7 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(100));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(100));
 
         List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(100));
 
@@ -261,7 +261,7 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
 
         List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(100));
 
