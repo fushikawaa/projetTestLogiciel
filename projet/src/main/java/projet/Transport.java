@@ -19,8 +19,8 @@ public class Transport {
     public Transport(
         @JsonProperty("departureCity") String departureCity, 
         @JsonProperty("destinationCity") String destinationCity, 
-        @JsonProperty("departureDateTime") LocalDateTime departureDateTime, 
-        @JsonProperty("destinationDateTime") LocalDateTime destinationDateTime, 
+        @JsonProperty("departureDateHour") LocalDateTime departureDateTime, 
+        @JsonProperty("destinationDateHour") LocalDateTime destinationDateTime, 
         @JsonProperty("price") BigDecimal price, 
         @JsonProperty("type") TransportType type
     ) {
