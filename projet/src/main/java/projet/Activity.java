@@ -3,6 +3,9 @@ package projet;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import projet.enums.ActivityType;
 
 public class Activity {
@@ -12,7 +15,14 @@ public class Activity {
     private LocalDateTime date;
     private BigDecimal price;
 
-    public Activity(String name, ActivityType category, String address, LocalDateTime date, BigDecimal price) {
+    @JsonCreator
+    public Activity(
+        @JsonProperty("name") String name, 
+        @JsonProperty("category") ActivityType category, 
+        @JsonProperty("address")String address, 
+        @JsonProperty("date") LocalDateTime date, 
+        @JsonProperty("price") BigDecimal price
+    ) {
         this.name = name;
         this.category = category;
         this.address = address;
