@@ -20,8 +20,19 @@ public class FileManager {
     }
 
     public void writeTravelsToFile(String filePath, List<TravelErrors> travels) throws IOException {
+        try {
+            File file = new File(filePath);
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
         ObjectMapper mapper = ObjectMapperProvider.getMapper();
-
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), travels);
     }
 }
