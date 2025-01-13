@@ -6,7 +6,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import projet.enums.PrivilegedHotel;
@@ -38,27 +37,27 @@ public class CorrespondingHotels {
 
     // Méthode pour récupérer les hôtels correspondant aux préférences de l'utilisateur
     public List<Hotel> findHotels(UserPreferences userPreferences, TravelRequirements travel, BigDecimal budget) {
+        List<Hotel> hotelsFound = new ArrayList<>();
 
         // Pour garder uniquement les hôtels respectant les conditions
         BigDecimal daysBetween;
         BigDecimal priceForAllNights;
-        for (int i = 0; i < correspondingHotels.size(); ++i) {
-            if (correspondingHotels.get(i).getCity() == travel.getTravelCity() &&
-                correspondingHotels.get(i).getStars() >= userPreferences.getMinNumberStars()
+        for (Hotel hotel: correspondingHotels) {
+            if (hotel.getCity().equals(travel.getTravelCity()) &&
+                hotel.getStars() >= userPreferences.getMinNumberStars()
             ) {
                 daysBetween = new BigDecimal(ChronoUnit.DAYS.between(travel.getDepartureDate(), travel.getEndDate()));
-                priceForAllNights = correspondingHotels.get(i).getPricePerNight().multiply(daysBetween);
-                if (priceForAllNights.compareTo(budget) > 0) {
-                    correspondingHotels.remove(i);
+                priceForAllNights = hotel.getPricePerNight().multiply(daysBetween);
+                if (priceForAllNights.compareTo(budget) <= 0) {
+                    hotelsFound.add(hotel);
                 }
-            } else {
-                correspondingHotels.remove(i);
-            }
+            } 
         }
-
-        if (correspondingHotels.isEmpty()) {
-            return correspondingHotels;
+        
+        if (hotelsFound.isEmpty()) {
+            return hotelsFound;
         }
+        setCorrespondingHotels(hotelsFound);
 
         selectBestHotels(userPreferences);
         return correspondingHotels;
@@ -89,7 +88,7 @@ public class CorrespondingHotels {
                 .filter(hotel -> hotel.getStars() == maxStars)
                 .collect(Collectors.toList());
 
-        } else if (userPreferences.getPrivilegedHotel() == PrivilegedHotel.NOMBRE_ETOILES) {
+        } else { // userPreferences.getPrivilegedHotel() == PrivilegedHotel.NOMBRE_ETOILES
             // 1. Trouver le nombre d'étoiles maximum
             int maxStars = correspondingHotels.stream()
                 .mapToInt(Hotel::getStars)
