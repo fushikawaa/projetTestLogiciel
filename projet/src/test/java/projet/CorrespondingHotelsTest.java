@@ -63,10 +63,10 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
 
-        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(1000));
+        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
 
         assertTrue(hotels.isEmpty());
         verify(mockFileManager, times(1)).getAllElements(anyString(), any(TypeReference.class));
@@ -87,11 +87,11 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
 
 
-        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(1000));
+        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
 
         assertTrue(hotels.isEmpty());
         verify(mockFileManager, times(1)).getAllElements(anyString(), any(TypeReference.class));
@@ -111,10 +111,10 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
 
-        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(1000));
+        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
 
         assertEquals(1, hotels.size());
         assertEquals("Bordeaux Hotel 5", hotels.get(0).getName());
@@ -136,10 +136,10 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
 
-        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(1000));
+        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
 
 
         assertEquals(1, hotels.size());
@@ -161,9 +161,9 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
-        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(1000));
+        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
 
 
         assertEquals(1, hotels.size());
@@ -186,11 +186,11 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
 
 
-        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(1000));
+        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
 
 
         assertEquals(1, hotels.size());
@@ -213,9 +213,9 @@ public class CorrespondingHotelsTest{
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
 
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(10000));
 
-        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(1000));
+        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
 
 
         assertEquals(2, hotels.size());
@@ -247,5 +247,27 @@ public class CorrespondingHotelsTest{
         verify(mockFileManager, times(1)).getAllElements(anyString(), any(TypeReference.class));
     }
 
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testFindHotelsEqualsToBudget() throws IOException {
+        FileManager mockFileManager = Mockito.mock(FileManager.class);
+
+        ArrayList<Hotel> mocksHotels = new ArrayList<Hotel>();
+        mocksHotels.add(new Hotel("Bordeaux Hotel 8", "8 Rue Notre-Dame, Bordeaux",  "Bordeaux", 3, new BigDecimal(100.0)));
+        mocksHotels.add(new Hotel("Bordeaux Hotel 5", "5 Place Gambetta, Bordeaux", "Bordeaux", 3, new BigDecimal(100.0)));
+
+        when(mockFileManager.getAllElements(anyString(), any(TypeReference.class))).thenReturn((List<Hotel>) mocksHotels);
+
+        CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
+
+        UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
+        TravelRequirements travelRequirements = new TravelRequirements("Paris", "Marseille", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
+
+        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(100));
+
+
+        assertTrue(hotels.isEmpty());
+        verify(mockFileManager, times(1)).getAllElements(anyString(), any(TypeReference.class));
+    }
 
 }
