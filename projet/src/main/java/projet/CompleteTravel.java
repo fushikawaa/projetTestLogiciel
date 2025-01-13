@@ -47,7 +47,7 @@ public class CompleteTravel {
             actualBudget = actualBudget.subtract(hotels.get(0).getPricePerNight().multiply(daysBetween));
             for(Hotel hotel : hotels){
                 List<Activity> activities = correspondingActivities.findActivities(userPreferences, travelRequirements, actualBudget, hotel);
-                Travel travel = new Travel(goTransports, hotel, activities, returnTransports);
+                Travel travel = new Travel(goTransports, hotel, activities, returnTransports, travelRequirements.getBudget().subtract(actualBudget));
                 ArrayList<String> activitiesErrors = new ArrayList<>(errors); //copie errors pour éventuellement ajouter les erreurs des activités qui dépeendent de l'hôtel
                 if(activities.isEmpty()){
                     activitiesErrors.add("Aucune activité disponible autour de cet hotel dans votre budget.");
@@ -58,7 +58,7 @@ public class CompleteTravel {
         }
         else{
             errors.add("Aucun hotel disponible dans cette ville, pour ces dates et dans votre budget");
-            Travel travel = new Travel(goTransports, null, new ArrayList<>() , returnTransports);
+            Travel travel = new Travel(goTransports, null, new ArrayList<>() , returnTransports, travelRequirements.getBudget().subtract(actualBudget));
             TravelErrors travelErrors = new TravelErrors(travel, errors);
             correspondingTravels.add(travelErrors);
         }
@@ -80,5 +80,31 @@ public class CompleteTravel {
         List<TravelErrors> travels = createTravels();
         fileManager.writeTravelsToFile("src/result/travel.json", travels);
     }
+
+    public CorrespondingTransports getCorrespondingTransports() {
+        return correspondingTransports;
+    }
+
+    public CorrespondingHotels getCorrespondingHotels() {
+        return correspondingHotels;
+    }
+
+    public CorrespondingActivities getCorrespondingActivities() {
+        return correspondingActivities;
+    }
+
+    public UserPreferences getUserPreferences() {
+        return userPreferences;
+    }
+
+    public TravelRequirements getTravelRequirements() {
+        return travelRequirements;
+    }
+
+    public FileManager getFileManager() {
+        return fileManager;
+    }
+
+    
 
 }
