@@ -47,7 +47,7 @@ public class CorrespondingActivitiesTest{
         when(mockFileManager.getAllElements(anyString(), any(TypeReference.class))).thenReturn((List<Activity>) mockActivities);
         
         // Création d'une instance de CorrespondingActivities avec des activités simulées
-        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager);
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager, mockCoordinatesManager);
         
         // Préférences utilisateur, critères de voyage et hotel
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 3,
@@ -85,7 +85,7 @@ public class CorrespondingActivitiesTest{
         when(mockFileManager.getAllElements(anyString(), any(TypeReference.class))).thenReturn((List<Activity>) mockActivities);
         
         // Création d'une instance de CorrespondingActivities avec des activités simulées
-        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager);
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager, mockCoordinatesManager);
         
         // Préférences utilisateur, critères de voyage et hotel
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 3,
@@ -123,7 +123,7 @@ public class CorrespondingActivitiesTest{
         when(mockFileManager.getAllElements(anyString(), any(TypeReference.class))).thenReturn((List<Activity>) mockActivities);
         
         // Création d'une instance de CorrespondingActivities avec des activités simulées
-        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager);
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager, mockCoordinatesManager);
         
         // Préférences utilisateur, critères de voyage et hotel
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 3,
@@ -162,7 +162,7 @@ public class CorrespondingActivitiesTest{
         when(mockFileManager.getAllElements(anyString(), any(TypeReference.class))).thenReturn((List<Activity>) mockActivities);
         
         // Création d'une instance de CorrespondingActivities avec des activités simulées
-        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager);
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager, mockCoordinatesManager);
         
         // Préférences utilisateur, critères de voyage et hotel
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 3,
@@ -201,7 +201,7 @@ public class CorrespondingActivitiesTest{
         when(mockFileManager.getAllElements(anyString(), any(TypeReference.class))).thenReturn((List<Activity>) mockActivities);
         
         // Création d'une instance de CorrespondingActivities avec des activités simulées
-        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager);
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager, mockCoordinatesManager);
         
         // Préférences utilisateur, critères de voyage et hotel
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 3,
@@ -239,7 +239,7 @@ public class CorrespondingActivitiesTest{
         when(mockFileManager.getAllElements(anyString(), any(TypeReference.class))).thenReturn((List<Activity>) mockActivities);
         
         // Création d'une instance de CorrespondingActivities avec des activités simulées
-        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager);
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager, mockCoordinatesManager);
         
         // Préférences utilisateur, critères de voyage et hotel
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 3,
@@ -277,7 +277,7 @@ public class CorrespondingActivitiesTest{
         when(mockFileManager.getAllElements(anyString(), any(TypeReference.class))).thenReturn((List<Activity>) mockActivities);
         
         // Création d'une instance de CorrespondingActivities avec des activités simulées
-        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager);
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager, mockCoordinatesManager);
         
         // Préférences utilisateur, critères de voyage et hotel
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 3,
@@ -315,7 +315,7 @@ public class CorrespondingActivitiesTest{
         when(mockFileManager.getAllElements(anyString(), any(TypeReference.class))).thenReturn((List<Activity>) mockActivities);
         
         // Création d'une instance de CorrespondingActivities avec des activités simulées
-        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager);
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("example.json", mockFileManager, mockCoordinatesManager);
         
         // Préférences utilisateur, critères de voyage et hotel
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 3,

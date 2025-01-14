@@ -9,7 +9,7 @@ public class CorrespondingActivitiesTestIT {
     @Test
     public void testGetAllActivities(){
         FileManager fileManager = new FileManager();
-        CorrespondingActivities correspondingActivities= new CorrespondingActivities("src/data/activities_database_test.json", fileManager);
+        CorrespondingActivities correspondingActivities= new CorrespondingActivities("src/data/activities_database_test.json", fileManager, new CoordinatesManager());
         
         correspondingActivities.getAllActivity();
 
@@ -21,7 +21,7 @@ public class CorrespondingActivitiesTestIT {
     @Test
     public void testGetAllActivitiesEmpty(){
         FileManager fileManager = new FileManager();
-        CorrespondingActivities correspondingActivities = new CorrespondingActivities("src/data/empty_file.json", fileManager);
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("src/data/empty_file.json", fileManager, new CoordinatesManager());
         
         correspondingActivities.getAllActivity();
 

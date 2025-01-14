@@ -144,7 +144,7 @@ public class Main {
         FileManager fileManager = new FileManager();
         CorrespondingTransports correspondingTransports = new CorrespondingTransports("src/data/transports_database.json", fileManager);
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("src/data/hotels_database.json", fileManager);
-        CorrespondingActivities correspondingActivities = new CorrespondingActivities("src/data/activities_database.json", fileManager);
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("src/data/activities_database.json", fileManager, new CoordinatesManager());
         CompleteTravel completeTravel = new CompleteTravel(correspondingTransports, correspondingHotels, correspondingActivities, userPreferences, travelRequirements, fileManager);
         
         List<TravelErrors> travels = completeTravel.createTravels();

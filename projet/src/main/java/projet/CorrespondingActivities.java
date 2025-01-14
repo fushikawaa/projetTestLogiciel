@@ -11,14 +11,15 @@ import com.fasterxml.jackson.core.type.TypeReference;
 public class CorrespondingActivities {
     private String activityJsonPath;
     private List<Activity> activities;
-    private CoordinatesManager coordinatesManager = new CoordinatesManager();
+    private CoordinatesManager coordinatesManager;
     private FileManager fileManager;
 
-    public CorrespondingActivities(String path, FileManager fileManager) {
+    public CorrespondingActivities(String path, FileManager fileManager, CoordinatesManager coordinatesManager) {
         this.activityJsonPath = path;
         this.activities = new ArrayList<>();
         this.fileManager = fileManager;
         getAllActivity();
+        this.coordinatesManager = coordinatesManager;
     }
 
     public void getAllActivity() {
@@ -36,24 +37,25 @@ public class CorrespondingActivities {
         for(Activity activity : activities) {
             if(activity.getDate().isAfter(travelRequirements.getDepartureDate()) 
             && activity.getDate().isBefore(travelRequirements.getEndDate())
-            && (activity.getCategory() == userPreferences.getPreferedActivity()
-            || activity.getCategory() == userPreferences.getSecondActivity())
+            && (activity.getCategory().equals(userPreferences.getPreferedActivity())
+            || activity.getCategory().equals(userPreferences.getSecondActivity()))
             && activity.getPrice().compareTo(money) <= 0
             ) {
+                double[] cooHotel;
+                double[] cooActivity;
                 try {
-                    double[] cooHotel = coordinatesManager.getCoordinates(hotel.getAddress());
-                    double[] cooActivity = coordinatesManager.getCoordinates(activity.getAddress());
-
-                    BigDecimal dist = BigDecimal.valueOf(coordinatesManager.calculateDistance(cooHotel[0], cooHotel[1], cooActivity[0], cooActivity[1]));
-
-                    if(travelRequirements.getActivityDistance().compareTo(dist) >= 0 ) {
-                        goodActivities.add(activity);
-                        money = money.subtract(activity.getPrice());
-                    }
-                
-
-                } catch(Exception e) {
+                    cooHotel = coordinatesManager.getCoordinates(hotel.getAddress());
+                    cooActivity = coordinatesManager.getCoordinates(activity.getAddress());
+                } catch (Exception e) {
                     e.printStackTrace();
+                    return null;
+                }
+                
+                BigDecimal dist = new BigDecimal(coordinatesManager.calculateDistance(cooHotel[0], cooHotel[1], cooActivity[0], cooActivity[1]));
+                
+                if(travelRequirements.getActivityDistance().compareTo(dist) >= 0 ) {
+                    goodActivities.add(activity);
+                    money = money.subtract(activity.getPrice());
                 }
             }
         }
