@@ -2,7 +2,8 @@ package projet;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -17,6 +18,7 @@ public class CorrespondingActivities {
         this.activityJsonPath = path;
         this.activities = new ArrayList<>();
         this.fileManager = fileManager;
+        getAllActivity();
     }
 
     public void getAllActivity() {
