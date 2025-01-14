@@ -2,6 +2,9 @@ package projet;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Hotel {
     private String name;
     private String address;
@@ -9,7 +12,14 @@ public class Hotel {
     private int stars;
     private BigDecimal pricePerNight;
 
-    public Hotel(String name, String address, String city, int stars, BigDecimal pricePerNight) {
+    @JsonCreator
+    public Hotel(
+        @JsonProperty("name") String name, 
+        @JsonProperty("address") String address, 
+        @JsonProperty("city") String city, 
+        @JsonProperty("stars") int stars, 
+        @JsonProperty("pricePerNight") BigDecimal pricePerNight
+    ) {
         this.name = name;
         this.address = address;
         this.city = city;

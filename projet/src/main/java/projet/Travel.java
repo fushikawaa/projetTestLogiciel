@@ -1,19 +1,30 @@
 package projet;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Travel {
     private ArrayList<ArrayList<Transport>> goTrip;
     private Hotel hotel;
     private List<Activity> activities;
     private ArrayList<ArrayList<Transport>> returnTrip;
+    private BigDecimal totalPrice;
 
-    public Travel(ArrayList<ArrayList<Transport>> goTrip, Hotel hotel, List<Activity> activities, ArrayList<ArrayList<Transport>> returnTrip){
+    public Travel(
+        @JsonProperty("goTrip") ArrayList<ArrayList<Transport>> goTrip, 
+        @JsonProperty("hotel") Hotel hotel, 
+        @JsonProperty("activities") List<Activity> activities, 
+        @JsonProperty("returnTrip") ArrayList<ArrayList<Transport>> returnTrip,
+        @JsonProperty("totalPrice") BigDecimal totalPrice
+    ) {
         this.goTrip = goTrip;
         this.hotel = hotel;
         this.activities = activities;
         this.returnTrip = returnTrip;
+        this.totalPrice = totalPrice;
     }
 
     public ArrayList<ArrayList<Transport>> getGoTrip() {
@@ -48,6 +59,12 @@ public class Travel {
         this.returnTrip = returnTrip;
     }
 
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
 
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 
 }

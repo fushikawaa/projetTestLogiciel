@@ -1,6 +1,5 @@
 package projet;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -23,16 +22,23 @@ public class CompleteTravel {
         this.fileManager = fileManager;
     }
 
-    public List<Travel> createTravels(){
-        List<Travel> correspondingTravels = new ArrayList<>();
+    public List<TravelErrors> createTravels(){
+        List<TravelErrors> correspondingTravels = new ArrayList<>();
+        List<String> errors = new ArrayList<>();
         BigDecimal actualBudget = travelRequirements.getBudget();
         ArrayList<ArrayList<Transport>> goTransports = correspondingTransports.findTransports(userPreferences, travelRequirements.getDepartureCity(), travelRequirements.getTravelCity(), travelRequirements.getDepartureDate(), actualBudget);
         if(!goTransports.isEmpty()){
             actualBudget = actualBudget.subtract(calculateTransportPrice(goTransports.get(0)));
         }
+        else{
+            errors.add("Aucun transport aller disponible pour ces villes à cette date et dans votre budget.");
+        }
         ArrayList<ArrayList<Transport>> returnTransports = correspondingTransports.findTransports(userPreferences, travelRequirements.getTravelCity(), travelRequirements.getFinalCity(), travelRequirements.getEndDate(), actualBudget);
         if(!returnTransports.isEmpty()){
             actualBudget = actualBudget.subtract(calculateTransportPrice(returnTransports.get(0)));
+        }
+        else{
+            errors.add("Aucun transport retour disponible pour ces villes à cette date et dans votre budget.");
         }
         List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, actualBudget);
         if(!hotels.isEmpty()){
@@ -40,9 +46,20 @@ public class CompleteTravel {
             actualBudget = actualBudget.subtract(hotels.get(0).getPricePerNight().multiply(daysBetween));
             for(Hotel hotel : hotels){
                 List<Activity> activities = correspondingActivities.findActivities(userPreferences, travelRequirements, actualBudget, hotel);
-                Travel travel = new Travel(goTransports, hotel, activities, returnTransports);
-                correspondingTravels.add(travel);
+                Travel travel = new Travel(goTransports, hotel, activities, returnTransports, travelRequirements.getBudget().subtract(actualBudget));
+                ArrayList<String> activitiesErrors = new ArrayList<>(errors); //copie errors pour éventuellement ajouter les erreurs des activités qui dépeendent de l'hôtel
+                if(activities.isEmpty()){
+                    activitiesErrors.add("Aucune activité disponible autour de cet hotel dans votre budget.");
+                }
+                TravelErrors travelErrors = new TravelErrors(travel, activitiesErrors);
+                correspondingTravels.add(travelErrors);
             }
+        }
+        else{
+            errors.add("Aucun hotel disponible dans cette ville, pour ces dates et dans votre budget");
+            Travel travel = new Travel(goTransports, null, new ArrayList<>() , returnTransports, travelRequirements.getBudget().subtract(actualBudget));
+            TravelErrors travelErrors = new TravelErrors(travel, errors);
+            correspondingTravels.add(travelErrors);
         }
 
 
@@ -57,9 +74,30 @@ public class CompleteTravel {
         return price;
     }
 
-    public void writeTravelsToFile() throws IOException{
-        List<Travel> travels = createTravels();
-        fileManager.writeTravelsToFile("src/result/travel.json", travels);
+    public CorrespondingTransports getCorrespondingTransports() {
+        return correspondingTransports;
     }
+
+    public CorrespondingHotels getCorrespondingHotels() {
+        return correspondingHotels;
+    }
+
+    public CorrespondingActivities getCorrespondingActivities() {
+        return correspondingActivities;
+    }
+
+    public UserPreferences getUserPreferences() {
+        return userPreferences;
+    }
+
+    public TravelRequirements getTravelRequirements() {
+        return travelRequirements;
+    }
+
+    public FileManager getFileManager() {
+        return fileManager;
+    }
+
+    
 
 }

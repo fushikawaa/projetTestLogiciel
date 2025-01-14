@@ -3,6 +3,8 @@ package projet;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import projet.enums.TransportType;
 
 public class Transport {
@@ -14,13 +16,20 @@ public class Transport {
     private TransportType type;
 
 
-    public Transport(String departureCity, String destinationCity, LocalDateTime departureDateTime, LocalDateTime destinationDateTime,BigDecimal price, TransportType type ){
-        setDepartureCity(departureCity);
-        setDestinationCity(destinationCity);
-        setDepartureDateTime(departureDateTime);
-        setDestinationDateTime(destinationDateTime);
-        setPrice(price);
-        setType(type);
+    public Transport(
+        @JsonProperty("departureCity") String departureCity, 
+        @JsonProperty("destinationCity") String destinationCity, 
+        @JsonProperty("departureDateHour") LocalDateTime departureDateTime, 
+        @JsonProperty("destinationDateHour") LocalDateTime destinationDateTime, 
+        @JsonProperty("price") BigDecimal price, 
+        @JsonProperty("type") TransportType type
+    ) {
+        this.departureCity = departureCity;
+        this.destinationCity = destinationCity;
+        this.departureDateTime = departureDateTime;
+        this.destinationDateTime = destinationDateTime;
+        this.price = price;
+        this.type = type;
     }
 
     public String getDepartureCity() {
