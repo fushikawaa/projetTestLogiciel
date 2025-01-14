@@ -30,12 +30,13 @@ public class CorrespondingActivities {
     public List<Activity> findActivities(UserPreferences userPreferences, TravelRequirements travelRequirements, BigDecimal budget, Hotel hotel) {
         List<Activity> goodActivities = new ArrayList<>();
 
+        BigDecimal money = budget;
         for(Activity activity : activities) {
             if(activity.getDate().isAfter(travelRequirements.getDepartureDate()) 
             && activity.getDate().isBefore(travelRequirements.getEndDate())
             && (activity.getCategory() == userPreferences.getPreferedActivity()
             || activity.getCategory() == userPreferences.getSecondActivity())
-            && activity.getPrice().compareTo(budget) <= 0
+            && activity.getPrice().compareTo(money) <= 0
             ) {
                 try {
                     double[] cooHotel = coordinatesManager.getCoordinates(hotel.getAddress());
@@ -45,6 +46,7 @@ public class CorrespondingActivities {
 
                     if(travelRequirements.getActivityDistance().compareTo(dist) >= 0 ) {
                         goodActivities.add(activity);
+                        money = money.subtract(activity.getPrice());
                     }
                 
 
