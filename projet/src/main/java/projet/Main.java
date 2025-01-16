@@ -1,5 +1,6 @@
 package projet;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -149,7 +150,7 @@ public class Main {
         
         List<TravelErrors> travels = completeTravel.createTravels();
         try {
-            fileManager.writeTravelsToFile("src/result/travel.json", travels);
+            fileManager.writeTravelsToFile(new File("src/result/travel.json"), "src/result/travel.json", travels);
         } catch (IOException e) {
             System.err.println("Erreur lors de l'écriture des données dans le fichier 'travel.json': " + e.getMessage());
         }

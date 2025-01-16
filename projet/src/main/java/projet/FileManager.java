@@ -19,9 +19,8 @@ public class FileManager {
         return mapper.readValue(file, typeReference);
     }
 
-    public void writeTravelsToFile(String filePath, List<TravelErrors> travels) throws IOException {
+    public void writeTravelsToFile(File file, String filePath, List<TravelErrors> travels) throws IOException {
         try {
-            File file = new File(filePath);
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }

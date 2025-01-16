@@ -3,6 +3,9 @@ package projet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -59,7 +63,7 @@ public class FileManagerTest {
         mockTravels.add(new TravelErrors(travel, errors));
         
         // Act
-        fileManager.writeTravelsToFile(tempFile.getPath(), mockTravels);
+        fileManager.writeTravelsToFile(new File(tempFile.getPath()), tempFile.getPath(), mockTravels);
         
         // Assert
         ObjectMapper mapper = ObjectMapperProvider.getMapper();
@@ -108,7 +112,7 @@ public class FileManagerTest {
         List<TravelErrors> mockTravels = List.of(travelErrors);
 
         // Act
-        fileManager.writeTravelsToFile(tempFile.getPath(), mockTravels);
+        fileManager.writeTravelsToFile(new File(tempFile.getPath()), tempFile.getPath(), mockTravels);
 
         // Assert
         assertTrue(tempDir.exists()); // Le répertoire parent doit exister
@@ -150,7 +154,7 @@ public class FileManagerTest {
         List<TravelErrors> mockTravels = List.of(travelErrors);
 
         // Act
-        fileManager.writeTravelsToFile(tempFile.getPath(), mockTravels);
+        fileManager.writeTravelsToFile(new File(tempFile.getPath()), tempFile.getPath(), mockTravels);
 
         // Assert
         assertTrue(tempFile.exists()); // Le fichier doit être créé
@@ -191,8 +195,30 @@ public class FileManagerTest {
         List<TravelErrors> mockTravels = List.of(travelErrors);
 
         // Act & Assert
-        assertThrows(IOException.class, () -> fileManager.writeTravelsToFile(invalidPath, mockTravels));
+        assertThrows(IOException.class, () -> fileManager.writeTravelsToFile(new File(invalidPath), invalidPath, mockTravels));
     }
 
+    @Test
+    void testWriteTravelsToFile_CreatesParentDirectory() throws IOException {
+        String filePath = "src/result/travel.json";
+        List<TravelErrors> travels = new ArrayList<>();
+        File fileMock = Mockito.mock(File.class); 
+
+        File parentFileMock = Mockito.mock(File.class);
+        when(fileMock.getParentFile()).thenReturn(parentFileMock);
+        when(parentFileMock.exists()).thenReturn(false);
+        when(parentFileMock.mkdirs()).thenReturn(true); 
+        when(fileMock.exists()).thenReturn(false);    
+        when(fileMock.createNewFile()).thenReturn(true); 
+
+        FileManager fileManager = new FileManager();
+        fileManager.writeTravelsToFile(fileMock, filePath, travels);
+
+        // On vérifie que les fonctions ont bien été appelées dans le cas où le dossier et le fichier n'existent pas
+        verify(parentFileMock, times(1)).mkdirs(); 
+        verify(fileMock, times(1)).createNewFile();
+    }
 }
+
+
 
