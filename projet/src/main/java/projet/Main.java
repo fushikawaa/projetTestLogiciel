@@ -19,32 +19,32 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Entrez votre ville de départ : ");
+        System.out.print("Entrez votre ville de départ : (parmis Paris, Bordeaux, Marseille, Lyon, Nice, Rennes, Strasbourg, Lille et Toulouse)");
         String departureCity = scanner.nextLine();
 
-        System.out.print("Entrez votre ville de voyage : ");
+        System.out.print("Entrez votre ville de voyage : (parmis Paris, Bordeaux, Marseille, Lyon, Nice, Rennes, Strasbourg, Lille et Toulouse)");
         String travelCity = scanner.nextLine();
 
-        System.out.print("Entrez votre ville de retour : ");
+        System.out.print("Entrez votre ville de retour : (parmis Paris, Bordeaux, Marseille, Lyon, Nice, Rennes, Strasbourg, Lille et Toulouse)");
         String finalCity = scanner.nextLine();
 
-        System.out.print("Entrez votre date de départ au format YYYY-MM-DD : ");
+        System.out.print("Entrez votre date de départ au format 2025-MM-DD : ");
         String departureDateString = scanner.nextLine();
         LocalDate departureDate = LocalDate.parse(departureDateString, DateTimeFormatter.ISO_LOCAL_DATE);
         LocalDateTime departureDateTime = departureDate.atStartOfDay();
 
-        System.out.print("Entrez votre date de départ au format YYYY-MM-DD : ");
+        System.out.print("Entrez votre date de départ au format 2025-MM-DD : ");
         String endDateString = scanner.nextLine();
         LocalDate endDate = LocalDate.parse(endDateString, DateTimeFormatter.ISO_LOCAL_DATE);
         LocalDateTime endDateTime = endDate.atStartOfDay();
 
         System.out.print("Entrez votre distance maximum en km entre l'hôtel et les activités : ");
-        int activityDistanceInt = scanner.nextInt();
-        BigDecimal activityDistance = new BigDecimal(activityDistanceInt);
+        double activityDistanceDouble = scanner.nextDouble();
+        BigDecimal activityDistance = new BigDecimal(activityDistanceDouble);
 
         System.out.print("Entrez votre budget total pour ce voyage : ");
-        int budgetInt = scanner.nextInt();
-        BigDecimal budget = new BigDecimal(budgetInt);
+        double budgetDouble = scanner.nextDouble();
+        BigDecimal budget = new BigDecimal(budgetDouble);
 
         System.out.println("Entrez le chiffre qui correspond au type de transport que vous souhaitez : ");
         System.out.println("1 - Train");
