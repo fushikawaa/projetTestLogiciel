@@ -29,5 +29,17 @@ public class CorrespondingActivitiesTestIT {
         
         assertEquals(0, allActivities.size());
     }
+
+    @Test
+    public void testGetAllActivitiesBadPath(){
+        FileManager fileManager = new FileManager();
+        CorrespondingActivities correspondingActivities = new CorrespondingActivities("src/data/transports_database_test.json", fileManager, new CoordinatesManager());
+        
+        correspondingActivities.getAllActivity();
+
+        List<Activity> allActivities = correspondingActivities.getActivities();
+        
+        assertEquals(0, allActivities.size());
+    }
 }
 

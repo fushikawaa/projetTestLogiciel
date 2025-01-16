@@ -2,40 +2,97 @@
     {
         "departureCity": "Nice",
         "destinationCity": "Toulouse",
-        "departureDateHour": "2025-01-19 05:48:00",
-        "destinationDateHour": "2025-01-19 08:22:00",
+        "departureDateHour": "2025-01-19T07:01:00",
+        "destinationDateHour": "2025-01-19T08:25:00",
         "price": 287.66,
         "type": "TRAIN"
     },
     {
         "departureCity": "Marseille",
         "destinationCity": "Bordeaux",
-        "departureDateHour": "2025-12-04 00:40:00",
-        "destinationDateHour": "2025-12-04 02:49:00",
+        "departureDateHour": "2025-12-04T07:32:00",
+        "destinationDateHour": "2025-12-04T08:54:00",
         "price": 201.13,
         "type": "AVION"
     },
     {
         "departureCity": "Paris",
         "destinationCity": "Toulouse",
-        "departureDateHour": "2025-11-05 09:10:00",
-        "destinationDateHour": "2025-11-05 10:28:00",
+        "departureDateHour": "2025-11-05T09:20:00",
+        "destinationDateHour": "2025-11-05T10:18:00",
         "price": 220.9,
         "type": "TRAIN"
     },
     {
         "departureCity": "Paris",
         "destinationCity": "Nice",
-        "departureDateHour": "2025-03-11 03:58:00",
-        "destinationDateHour": "2025-03-11 05:53:00",
+        "departureDateHour": "2025-03-11T07:55:00",
+        "destinationDateHour": "2025-03-11T08:20:00",
         "price": 208.77,
         "type": "TRAIN"
     },
     {
         "departureCity": "Marseille",
         "destinationCity": "Nice",
-        "departureDateHour": "2025-06-08 22:14:00",
-        "destinationDateHour": "2025-06-09 01:14:00",
+        "departureDateHour": "2025-06-08T21:56:00",
+        "destinationDateHour": "2025-06-08T22:10:00",
         "price": 35.24,
         "type": "TRAIN"
-    }]
+    },
+    {
+        "departureCity": "Lyon",
+        "destinationCity": "Strasbourg",
+        "departureDateHour": "2025-10-14T07:21:00",
+        "destinationDateHour": "2025-10-14T08:05:00",
+        "price": 42.42,
+        "type": "AVION"
+    },
+    {
+        "departureCity": "Lyon",
+        "destinationCity": "Paris",
+        "departureDateHour": "2025-11-24T07:55:00",
+        "destinationDateHour": "2025-11-24T08:47:00",
+        "price": 70.96,
+        "type": "TRAIN"
+    },
+    {
+        "departureCity": "Lille",
+        "destinationCity": "Nice",
+        "departureDateHour": "2025-07-01T11:40:00",
+        "destinationDateHour": "2025-07-01T16:20:00",
+        "price": 243.12,
+        "type": "TRAIN"
+    },
+    {
+        "departureCity": "Strasbourg",
+        "destinationCity": "Bordeaux",
+        "departureDateHour": "2025-01-20T21:36:00",
+        "destinationDateHour": "2025-01-20T22:51:00",
+        "price": 186.89,
+        "type": "AVION"
+    },
+    {
+        "departureCity": "Nice",
+        "destinationCity": "Toulouse",
+        "departureDateHour": "2025-01-19T07:01:00",
+        "destinationDateHour": "2025-01-19T08:25:00",
+        "price": 287.66,
+        "type": "TRAIN"
+    },
+    {
+        "departureCity": "Marseille",
+        "destinationCity": "Bordeaux",
+        "departureDateHour": "2025-12-04T07:32:00",
+        "destinationDateHour": "2025-12-04T08:54:00",
+        "price": 201.13,
+        "type": "AVION"
+    },
+    {
+        "departureCity": "Paris",
+        "destinationCity": "Toulouse",
+        "departureDateHour": "2025-11-05T09:20:00",
+        "destinationDateHour": "2025-11-05T10:18:00",
+        "price": 220.9,
+        "type": "TRAIN"
+    }
+]

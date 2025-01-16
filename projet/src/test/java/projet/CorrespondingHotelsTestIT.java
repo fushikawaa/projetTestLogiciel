@@ -29,4 +29,16 @@ public class CorrespondingHotelsTestIT {
         
         assertEquals(0, allHotels.size());
     }
+
+    @Test
+    public void testGetAllHotelsBadPath(){
+        FileManager fileManager = new FileManager();
+        CorrespondingHotels correspondingHotels = new CorrespondingHotels("src/data/activities_database_test.json", fileManager);
+        
+        correspondingHotels.getAllHotels();
+
+        List<Hotel> allHotels = correspondingHotels.getCorrespondingHotels();
+        
+        assertEquals(0, allHotels.size());
+    }
 }

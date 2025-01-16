@@ -268,6 +268,102 @@ public void testFindTransportsWithMinimumTime() throws IOException {
 }
 
 @Test
+public void testFindTransportsWithBadTimeTransport() throws IOException {
+    FileManager mockFileManager = Mockito.mock(FileManager.class);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    ArrayList<Transport> mockTransports = new ArrayList<>();
+    mockTransports.add(new Transport("Paris", "Marseille", 
+        LocalDateTime.parse("2025-01-19 06:00:00", formatter), 
+        LocalDateTime.parse("2025-01-19 09:30:00", formatter), 
+        new BigDecimal(80.0), TransportType.TRAIN));
+        mockTransports.add(new Transport("Paris", "Marseille", 
+        LocalDateTime.parse("2025-01-18 06:00:00", formatter), 
+        LocalDateTime.parse("2025-01-18 09:15:00", formatter), 
+        new BigDecimal(80.0), TransportType.TRAIN));
+        
+
+    when(mockFileManager.getAllElements(anyString(), any(TypeReference.class)))
+        .thenReturn((List<Transport>) mockTransports);
+
+    CorrespondingTransports correspondingTransports = new CorrespondingTransports("example.csv", mockFileManager);
+
+    UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.DUREE_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
+
+    ArrayList<ArrayList<Transport>> transports = correspondingTransports.findTransports(
+        userPreferences, "Paris", "Marseille", 
+        LocalDateTime.parse("2025-01-19 00:00:00", formatter), 
+        new BigDecimal(150.0));
+
+    assertEquals(1, transports.size());
+    assertEquals(LocalDateTime.parse("2025-01-19 09:30:00", formatter), transports.get(0).get(0).getDestinationDateTime());
+}
+
+@Test
+public void testFindTransportsWithNoMoneyForStopover() throws IOException {
+    FileManager mockFileManager = Mockito.mock(FileManager.class);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    ArrayList<Transport> mockTransports = new ArrayList<>();
+    mockTransports.add(new Transport("Paris", "Marseille", 
+        LocalDateTime.parse("2025-01-19 06:00:00", formatter), 
+        LocalDateTime.parse("2025-01-19 09:30:00", formatter), 
+        new BigDecimal(80.0), TransportType.TRAIN));
+        mockTransports.add(new Transport("Marseille", "Nice", 
+        LocalDateTime.parse("2025-01-19 10:00:00", formatter), 
+        LocalDateTime.parse("2025-01-19 12:00:00", formatter), 
+        new BigDecimal(80.0), TransportType.TRAIN));
+        
+
+    when(mockFileManager.getAllElements(anyString(), any(TypeReference.class)))
+        .thenReturn((List<Transport>) mockTransports);
+
+    CorrespondingTransports correspondingTransports = new CorrespondingTransports("example.csv", mockFileManager);
+
+    UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.DUREE_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
+
+    ArrayList<ArrayList<Transport>> transports = correspondingTransports.findTransports(
+        userPreferences, "Paris", "Nice", 
+        LocalDateTime.parse("2025-01-19 00:00:00", formatter), 
+        new BigDecimal(150.0));
+
+    assertEquals(0, transports.size());
+
+}
+/*
+@Test
+public void testFindTransportsWithBadCityForStopover() throws IOException {
+    FileManager mockFileManager = Mockito.mock(FileManager.class);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    ArrayList<Transport> mockTransports = new ArrayList<>();
+    mockTransports.add(new Transport("Paris", "Marseille", 
+        LocalDateTime.parse("2025-01-19 06:00:00", formatter), 
+        LocalDateTime.parse("2025-01-19 09:30:00", formatter), 
+        new BigDecimal(50.0), TransportType.TRAIN));
+        mockTransports.add(new Transport("Marseille", "Nice", 
+        LocalDateTime.parse("2025-01-19 08:50:00", formatter), 
+        LocalDateTime.parse("2025-01-19 11:00:00", formatter), 
+        new BigDecimal(40.0), TransportType.TRAIN));
+        
+
+    when(mockFileManager.getAllElements(anyString(), any(TypeReference.class)))
+        .thenReturn((List<Transport>) mockTransports);
+
+    CorrespondingTransports correspondingTransports = new CorrespondingTransports("example.csv", mockFileManager);
+
+    UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.DUREE_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
+
+    ArrayList<ArrayList<Transport>> transports = correspondingTransports.findTransports(
+        userPreferences, "Paris", "Nice", 
+        LocalDateTime.parse("2025-01-19 00:00:00", formatter), 
+        new BigDecimal(150.0));
+
+    assertEquals(0, transports.size());
+
+}*/
+
+@Test
 public void testFindTransportsWithMinimumTimeAndMinimumPrice() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
