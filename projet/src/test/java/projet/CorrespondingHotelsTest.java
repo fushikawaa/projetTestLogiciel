@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;
@@ -69,6 +70,7 @@ public class CorrespondingHotelsTest{
         List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(10000));
 
         assertTrue(hotels.isEmpty());
+        assertEquals(0, hotels.size());
         verify(mockFileManager, times(1)).getAllElements(anyString(), any(TypeReference.class));
     }
 
@@ -254,8 +256,7 @@ public class CorrespondingHotelsTest{
 
         ArrayList<Hotel> mocksHotels = new ArrayList<Hotel>();
         mocksHotels.add(new Hotel("Bordeaux Hotel 8", "8 Rue Notre-Dame, Bordeaux",  "Bordeaux", 3, new BigDecimal(100.0)));
-        mocksHotels.add(new Hotel("Bordeaux Hotel 5", "5 Place Gambetta, Bordeaux", "Bordeaux", 3, new BigDecimal(100.0)));
-
+       
         when(mockFileManager.getAllElements(anyString(), any(TypeReference.class))).thenReturn((List<Hotel>) mocksHotels);
 
         CorrespondingHotels correspondingHotels = new CorrespondingHotels("example.csv", mockFileManager); 
@@ -263,10 +264,10 @@ public class CorrespondingHotelsTest{
         UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
         TravelRequirements travelRequirements = new TravelRequirements("Paris", "Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusDays(10), new BigDecimal(10), new BigDecimal(1000));
 
-        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(100));
+        List<Hotel> hotels = correspondingHotels.findHotels(userPreferences, travelRequirements, new BigDecimal(1000));
 
 
-        assertTrue(hotels.isEmpty());
+        assertEquals(1, hotels.size());
         verify(mockFileManager, times(1)).getAllElements(anyString(), any(TypeReference.class));
     }
 

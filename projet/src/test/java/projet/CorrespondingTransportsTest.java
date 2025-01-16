@@ -120,6 +120,10 @@ public void testFindTransportsWithStopover() throws IOException {
         LocalDateTime.parse("2025-01-19 09:00:00", formatter), 
         LocalDateTime.parse("2025-01-19 11:00:00", formatter), 
         new BigDecimal(50.0), TransportType.TRAIN));
+    mockTransports.add(new Transport("Lyon", "Marseille", 
+        LocalDateTime.parse("2025-01-19 09:00:00", formatter), 
+        LocalDateTime.parse("2025-01-19 11:00:00", formatter), 
+        new BigDecimal(50.0), TransportType.AVION));
 
     when(mockFileManager.getAllElements(anyString(), any(TypeReference.class)))
         .thenReturn((List<Transport>) mockTransports);

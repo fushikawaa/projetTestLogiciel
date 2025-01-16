@@ -12,7 +12,7 @@ public class CoordinatesManager {
     public double[] getCoordinates(String address) throws Exception {
         
         // Formater l'URL pour faire la requête à l'API
-        String urlString = "https://geocode.maps.co/search?q=" + address.replace(" ", "%20");
+        String urlString = "https://geocode.maps.co/search?q=" + address.replace(" ", "%20") + "&api_key=678916bdb78b8494490842flg5735fc";
         
         try {
             // Créer l'URL et ouvrir la connexion HTTP

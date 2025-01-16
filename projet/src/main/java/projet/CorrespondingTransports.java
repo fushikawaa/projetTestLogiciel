@@ -87,17 +87,13 @@ public class CorrespondingTransports {
             PrivilegedTransport preferences = user.getPrivilegedTransport();
             if (preferences == PrivilegedTransport.PRIX_MINIMUM) {
                 correspondingTransports = findTransportsWithMinimumPrice(correspondingTransports);
-                //si plusieurs choix encore possibles, utiliser le second critère
-                if (correspondingTransports.size() > 1){
                     correspondingTransports = findTransportsWithMinimumDuration(correspondingTransports);
-                }
             }
 
-            else if (preferences == PrivilegedTransport.DUREE_MINIMUM) {
+            //forcément DUREE_MINIMUM
+            else{
                 correspondingTransports = findTransportsWithMinimumDuration(correspondingTransports);
-                if (correspondingTransports.size() > 1){
                     correspondingTransports = findTransportsWithMinimumPrice(correspondingTransports);
-                }
             }
         }
 

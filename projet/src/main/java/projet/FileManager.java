@@ -28,7 +28,7 @@ public class FileManager {
                 file.createNewFile();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Problème dans la création du fichier : " + e.getMessage());
         }
         
         ObjectMapper mapper = ObjectMapperProvider.getMapper();
