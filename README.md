@@ -19,7 +19,7 @@ Ville de voyage : Paris
 Ville de retour : Lille
 Date de départ : 2025-01-13
 Date de retour : 2025-01-24
-Distance entre l'hôtel et les activités : 
+Distance entre l'hôtel et les activités : 10
 Type de transport : 1 (Train)
 Etoiles minimum : 2 (ou moins)
 Première activité : 3 (Loisir)

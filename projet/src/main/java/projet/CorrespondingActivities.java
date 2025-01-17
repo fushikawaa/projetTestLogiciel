@@ -52,8 +52,12 @@ public class CorrespondingActivities {
                     return goodActivities;
                 }
                 
-                BigDecimal dist = new BigDecimal(coordinatesManager.calculateDistance(cooHotel[0], cooHotel[1], cooActivity[0], cooActivity[1]));
-                
+                BigDecimal dist;
+                if(cooHotel.length == 2 && cooActivity.length == 2){
+                    dist = new BigDecimal(coordinatesManager.calculateDistance(cooHotel[0], cooHotel[1], cooActivity[0], cooActivity[1]));
+                } else{
+                    dist = new BigDecimal(100000);
+                }
                 if(travelRequirements.getActivityDistance().compareTo(dist) >= 0 ) {
                     goodActivities.add(activity);
                     money = money.subtract(activity.getPrice());
