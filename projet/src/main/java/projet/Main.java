@@ -138,8 +138,6 @@ public class Main {
             }
         }
 
-        //UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
-        //TravelRequirements travelRequirements = new TravelRequirements("Marseille", "Paris", "Lille", LocalDateTime.now(), LocalDateTime.now().plusDays(11), new BigDecimal(100000), new BigDecimal(200000));
         UserPreferences userPreferences = new UserPreferences(transportType, privilegedTransport, minNumberStars, privilegedHotel, firstActivityType, secondActivityType);
         TravelRequirements travelRequirements = new TravelRequirements(departureCity, travelCity, finalCity, departureDateTime, endDateTime, activityDistance, budget);
         FileManager fileManager = new FileManager();
