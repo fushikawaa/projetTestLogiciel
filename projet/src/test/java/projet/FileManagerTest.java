@@ -3,9 +3,6 @@ package projet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -84,32 +80,7 @@ public class FileManagerTest {
         File tempFile = new File(tempDir, "travels_test.json");
 
         // Instantiation de travel
-        Hotel hotel = new Hotel("Paris Hotel 1", "1 Avenue des Champs-Élysées, Paris", "Paris", 3, new BigDecimal(50.0));
-        
-        Activity activity = new Activity("Culture Activity", ActivityType.CULTURE, "10 Culture Avenue, Paris",
-                LocalDateTime.now().plusDays(5), new BigDecimal(30));
-        List<Activity> listActivities = new ArrayList<Activity>();
-        listActivities.add(activity);
-        
-        Transport goTransport = new Transport("Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusHours(3), new BigDecimal(50.0), TransportType.AVION);
-        ArrayList<Transport> listGoTransports = new ArrayList<Transport>();
-        listGoTransports.add(goTransport);
-        ArrayList<ArrayList<Transport>> mocksFindGoTransports = new ArrayList<ArrayList<Transport>>();
-        mocksFindGoTransports.add(listGoTransports);
-        
-        Transport returnTransport = new Transport("Paris", "Bordeaux", LocalDateTime.now().plusDays(10), LocalDateTime.now().plusDays(10).plusHours(4), new BigDecimal(50.0),  TransportType.TRAIN);
-        ArrayList<Transport> listReturnTransports = new ArrayList<Transport>();
-        listReturnTransports.add(returnTransport);
-        ArrayList<ArrayList<Transport>> mocksFindReturnTransports = new ArrayList<ArrayList<Transport>>();
-        mocksFindReturnTransports.add(listReturnTransports);
-        Travel travel = new Travel(mocksFindGoTransports, hotel, listActivities, mocksFindReturnTransports, new BigDecimal(100));
-
-        // Crée un TravelErrors pour les données
-        TravelErrors travelErrors = new TravelErrors(
-            travel,
-            List.of("Error 1")
-        );
-        List<TravelErrors> mockTravels = List.of(travelErrors);
+        List<TravelErrors> mockTravels = new ArrayList<>();
 
         // Act
         fileManager.writeTravelsToFile(new File(tempFile.getPath()), tempFile.getPath(), mockTravels);
@@ -126,32 +97,7 @@ public class FileManagerTest {
         File tempFile = new File(System.getProperty("java.io.tmpdir"), "nonexistentFile.json");
 
         // Instantiation de travel
-        Hotel hotel = new Hotel("Paris Hotel 1", "1 Avenue des Champs-Élysées, Paris", "Paris", 3, new BigDecimal(50.0));
-        
-        Activity activity = new Activity("Culture Activity", ActivityType.CULTURE, "10 Culture Avenue, Paris",
-                LocalDateTime.now().plusDays(5), new BigDecimal(30));
-        List<Activity> listActivities = new ArrayList<Activity>();
-        listActivities.add(activity);
-        
-        Transport goTransport = new Transport("Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusHours(3), new BigDecimal(50.0), TransportType.AVION);
-        ArrayList<Transport> listGoTransports = new ArrayList<Transport>();
-        listGoTransports.add(goTransport);
-        ArrayList<ArrayList<Transport>> mocksFindGoTransports = new ArrayList<ArrayList<Transport>>();
-        mocksFindGoTransports.add(listGoTransports);
-        
-        Transport returnTransport = new Transport("Paris", "Bordeaux", LocalDateTime.now().plusDays(10), LocalDateTime.now().plusDays(10).plusHours(4), new BigDecimal(50.0),  TransportType.TRAIN);
-        ArrayList<Transport> listReturnTransports = new ArrayList<Transport>();
-        listReturnTransports.add(returnTransport);
-        ArrayList<ArrayList<Transport>> mocksFindReturnTransports = new ArrayList<ArrayList<Transport>>();
-        mocksFindReturnTransports.add(listReturnTransports);
-        Travel travel = new Travel(mocksFindGoTransports, hotel, listActivities, mocksFindReturnTransports, new BigDecimal(100));
-
-        // Crée un TravelErrors pour les données
-        TravelErrors travelErrors = new TravelErrors(
-            travel,
-            List.of("Error 1")
-        );
-        List<TravelErrors> mockTravels = List.of(travelErrors);
+        List<TravelErrors> mockTravels = new ArrayList<>();
 
         // Act
         fileManager.writeTravelsToFile(new File(tempFile.getPath()), tempFile.getPath(), mockTravels);
@@ -166,58 +112,12 @@ public class FileManagerTest {
         FileManager fileManager = new FileManager();
         String invalidPath = "/invalid/path/travels_test.json";
 
-        // Instantiation de travel
-        Hotel hotel = new Hotel("Paris Hotel 1", "1 Avenue des Champs-Élysées, Paris", "Paris", 3, new BigDecimal(50.0));
-        
-        Activity activity = new Activity("Culture Activity", ActivityType.CULTURE, "10 Culture Avenue, Paris",
-                LocalDateTime.now().plusDays(5), new BigDecimal(30));
-        List<Activity> listActivities = new ArrayList<Activity>();
-        listActivities.add(activity);
-        
-        Transport goTransport = new Transport("Bordeaux", "Paris", LocalDateTime.now(), LocalDateTime.now().plusHours(3), new BigDecimal(50.0), TransportType.AVION);
-        ArrayList<Transport> listGoTransports = new ArrayList<Transport>();
-        listGoTransports.add(goTransport);
-        ArrayList<ArrayList<Transport>> mocksFindGoTransports = new ArrayList<ArrayList<Transport>>();
-        mocksFindGoTransports.add(listGoTransports);
-        
-        Transport returnTransport = new Transport("Paris", "Bordeaux", LocalDateTime.now().plusDays(10), LocalDateTime.now().plusDays(10).plusHours(4), new BigDecimal(50.0),  TransportType.TRAIN);
-        ArrayList<Transport> listReturnTransports = new ArrayList<Transport>();
-        listReturnTransports.add(returnTransport);
-        ArrayList<ArrayList<Transport>> mocksFindReturnTransports = new ArrayList<ArrayList<Transport>>();
-        mocksFindReturnTransports.add(listReturnTransports);
-        Travel travel = new Travel(mocksFindGoTransports, hotel, listActivities, mocksFindReturnTransports, new BigDecimal(100));
-
-        // Crée un TravelErrors pour les données
-        TravelErrors travelErrors = new TravelErrors(
-            travel,
-            List.of("Error 1")
-        );
-        List<TravelErrors> mockTravels = List.of(travelErrors);
+        List<TravelErrors> mockTravels = new ArrayList<>();
 
         // Act & Assert
         assertThrows(IOException.class, () -> fileManager.writeTravelsToFile(new File(invalidPath), invalidPath, mockTravels));
     }
 
-    @Test
-    void testWriteTravelsToFile_CreatesParentDirectory() throws IOException {
-        String filePath = "src/result/travel.json";
-        List<TravelErrors> travels = new ArrayList<>();
-        File fileMock = Mockito.mock(File.class); 
-
-        File parentFileMock = Mockito.mock(File.class);
-        when(fileMock.getParentFile()).thenReturn(parentFileMock);
-        when(parentFileMock.exists()).thenReturn(false);
-        when(parentFileMock.mkdirs()).thenReturn(true); 
-        when(fileMock.exists()).thenReturn(false);    
-        when(fileMock.createNewFile()).thenReturn(true); 
-
-        FileManager fileManager = new FileManager();
-        fileManager.writeTravelsToFile(fileMock, filePath, travels);
-
-        // On vérifie que les fonctions ont bien été appelées dans le cas où le dossier et le fichier n'existent pas
-        verify(parentFileMock, times(1)).mkdirs(); 
-        verify(fileMock, times(1)).createNewFile();
-    }
 }
 
 

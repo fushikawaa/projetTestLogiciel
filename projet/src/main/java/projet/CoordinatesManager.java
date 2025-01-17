@@ -4,56 +4,59 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLStreamHandler;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class CoordinatesManager {
 
-    public double[] getCoordinates(String address) throws Exception {
-        
-        // Formater l'URL pour faire la requête à l'API
-        String urlString = "https://geocode.maps.co/search?q=" + address.replace(" ", "%20") + "&api_key=678916bdb78b8494490842flg5735fc";
-        
-        try {
-            // Créer l'URL et ouvrir la connexion HTTP
-            URL url = new URL(urlString);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            
-            // Lire la réponse
-            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            String inputLine;
-            StringBuilder response = new StringBuilder();
-            
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
-            
-            // Analyser la réponse JSON
-            JSONObject jsonResponse = new JSONObject(response.toString());
-            
-            // Vérifier si des résultats sont retournés
-            if (jsonResponse.length() > 0) {
-                // Extraire les coordonnées de la première réponse
-                JSONObject firstResult = jsonResponse.getJSONArray("results").getJSONObject(0);
-                double latitude = firstResult.getDouble("lat");
-                double longitude = firstResult.getDouble("lon");
+    private final URLStreamHandler urlStreamHandler;
 
-                // Afficher les résultats
-                System.out.println("Latitude: " + latitude);
-                System.out.println("Longitude: " + longitude);
-                
-                return new double[]{latitude, longitude};
-            } else {
-                System.out.println("Aucun résultat trouvé.");
-                return new double[]{};
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    // Constructeur par défaut
+    public CoordinatesManager() {
+        this.urlStreamHandler = null;
+    }
+
+    // Conctructeur pour pouvoir mocker URLStreamHandler
+    public CoordinatesManager(URLStreamHandler urlStreamHandler) {
+        this.urlStreamHandler = urlStreamHandler;
+    }
+
+    protected URL createUrl(String address) throws Exception {
+        if (urlStreamHandler == null) {
+            return new URL("https://geocode.maps.co/search?q=" + address.replace(" ", "%20") + "&api_key=678916bdb78b8494490842flg5735fc");
+        }
+        return new URL(null, "https://geocode.maps.co/search?q=" + address.replace(" ", "%20") + "&api_key=678916bdb78b8494490842flg5735fc", urlStreamHandler);
+    }
+    
+
+    public double[] getCoordinates(String address) throws Exception {
+        Thread.sleep(1000);
+
+        URL url = createUrl(address);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        String inputLine;
+        StringBuilder response = new StringBuilder();
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+        }
+        in.close();
+
+        JSONArray jsonResponse = new JSONArray(response.toString());
+
+        if (jsonResponse.length() > 0) {
+            JSONObject firstResult = jsonResponse.getJSONObject(0);
+            double latitude = firstResult.getDouble("lat");
+            double longitude = firstResult.getDouble("lon");
+
+            return new double[]{latitude, longitude};
+        } else {
             return new double[]{};
         }
-        
     }
 
     public double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
