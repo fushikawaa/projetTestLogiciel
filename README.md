@@ -17,6 +17,13 @@ Ensuite, on lance l'application en archivant le projet et en l'exécutant :
 Ville de départ : Marseille
 Ville de voyage : Paris
 Ville de retour : Lille
+Date de départ : 2025-01-13
+Date de retour : 2025-01-24
+Distance entre l'hôtel et les activités : 
+Type de transport : 1 (Train)
+Etoiles minimum : 2 (ou moins)
+Première activité : 3 (Loisir)
+Seconde activité : 4 (Gastronomie)
 
 
 ## Lancer les tests
