@@ -29,7 +29,7 @@ import projet.enums.TransportType;
 public class CorrespondingTransportsTest {
 
     // Test unitaire
-
+    @SuppressWarnings("unchecked")
     @Test
 public void testFindTransportsNoTransportsAvailable() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -49,6 +49,7 @@ public void testFindTransportsNoTransportsAvailable() throws IOException {
     verify(mockFileManager, times(1)).getAllElements(anyString(), any(TypeReference.class));
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsDirectMatch() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -77,6 +78,7 @@ public void testFindTransportsDirectMatch() throws IOException {
     assertEquals("Marseille", transports.get(0).get(0).getDestinationCity());
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsDirectMatchWithoutType() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -105,6 +107,7 @@ public void testFindTransportsDirectMatchWithoutType() throws IOException {
     assertEquals("Marseille", transports.get(0).get(0).getDestinationCity());
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testGetAllTransportHandlesIOException() {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -122,7 +125,7 @@ public void testGetAllTransportHandlesIOException() {
     }
 }
 
-
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithStopover() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -160,6 +163,7 @@ public void testFindTransportsWithStopover() throws IOException {
     assertEquals("Marseille", transports.get(0).get(1).getDestinationCity());
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithStopoverBadTransition() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -192,6 +196,7 @@ public void testFindTransportsWithStopoverBadTransition() throws IOException {
     
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithStopoverBadDepartureCity() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -224,6 +229,7 @@ public void testFindTransportsWithStopoverBadDepartureCity() throws IOException 
     
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithStopoverBadTime() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -256,6 +262,7 @@ public void testFindTransportsWithStopoverBadTime() throws IOException {
     
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsPreferredTransportType() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -288,6 +295,7 @@ public void testFindTransportsPreferredTransportType() throws IOException {
     assertEquals(TransportType.TRAIN, transports.get(0).get(0).getType());
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithMinimumPricePreference() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -319,7 +327,7 @@ public void testFindTransportsWithMinimumPricePreference() throws IOException {
     assertEquals(new BigDecimal(80.0), transports.get(0).get(0).getPrice());
 }
 
-
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithMinimumPricePreferenceAndTimeDifference() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -355,6 +363,7 @@ public void testFindTransportsWithMinimumPricePreferenceAndTimeDifference() thro
     assertEquals(LocalDateTime.parse("2025-01-19 09:15:00", formatter), transports.get(0).get(0).getDestinationDateTime());
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithMinimumPricePreferenceAndTimeDifferenceOtherOrder() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -391,6 +400,7 @@ public void testFindTransportsWithMinimumPricePreferenceAndTimeDifferenceOtherOr
     assertEquals(LocalDateTime.parse("2025-01-19 09:15:00", formatter), transports.get(0).get(0).getDestinationDateTime());
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithMinimumTime() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -423,6 +433,7 @@ public void testFindTransportsWithMinimumTime() throws IOException {
     assertEquals(LocalDateTime.parse("2025-01-19 09:15:00", formatter), transports.get(0).get(0).getDestinationDateTime());
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithBadTimeTransport() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -455,6 +466,7 @@ public void testFindTransportsWithBadTimeTransport() throws IOException {
     assertEquals(LocalDateTime.parse("2025-01-19 09:30:00", formatter), transports.get(0).get(0).getDestinationDateTime());
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithNoMoneyForStopover() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -487,6 +499,7 @@ public void testFindTransportsWithNoMoneyForStopover() throws IOException {
 
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithMinimumTimeAndMinimumPrice() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -523,6 +536,7 @@ public void testFindTransportsWithMinimumTimeAndMinimumPrice() throws IOExceptio
     assertEquals(new BigDecimal(65.0), transports.get(0).get(0).getPrice());
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithMinimumTimeAndMinimumPriceOtherOrder() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -562,6 +576,7 @@ public void testFindTransportsWithMinimumTimeAndMinimumPriceOtherOrder() throws 
 
 //Test de mutation
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsBoundaryConditionOnPrice() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -589,6 +604,7 @@ public void testFindTransportsBoundaryConditionOnPrice() throws IOException {
 
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsStopoverBoundaryConditionOnPrice() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
@@ -598,11 +614,11 @@ public void testFindTransportsStopoverBoundaryConditionOnPrice() throws IOExcept
     mockTransports.add(new Transport("Paris", "Lyon", 
         LocalDateTime.parse("2025-01-19 06:00:00", formatter), 
         LocalDateTime.parse("2025-01-19 08:00:00", formatter), 
-        new BigDecimal(60.0), TransportType.TRAIN)); // Prix de la première partie
+        new BigDecimal(60.0), TransportType.TRAIN));
     mockTransports.add(new Transport("Lyon", "Marseille", 
         LocalDateTime.parse("2025-01-19 09:00:00", formatter), 
         LocalDateTime.parse("2025-01-19 11:00:00", formatter), 
-        new BigDecimal(40.0), TransportType.TRAIN)); // Prix de la deuxième partie
+        new BigDecimal(40.0), TransportType.TRAIN));
 
     when(mockFileManager.getAllElements(anyString(), any(TypeReference.class)))
         .thenReturn((List<Transport>) mockTransports);
@@ -619,6 +635,7 @@ public void testFindTransportsStopoverBoundaryConditionOnPrice() throws IOExcept
     assertTrue(transports.isEmpty());
 }
 
+@SuppressWarnings("unchecked")
 @Test
 public void testFindTransportsWithMinimumPricePreferenceAndTransportPriceEqualToBudget() throws IOException {
     FileManager mockFileManager = Mockito.mock(FileManager.class);
