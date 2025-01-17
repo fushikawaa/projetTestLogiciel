@@ -100,7 +100,7 @@ public class Main {
             }
         }
 
-        System.out.println("Entrez le chiffre qui correspond à la première catégorie d'acitivités que vous souhaitez : ");
+        System.out.println("Entrez le chiffre qui correspond à la première catégorie d'activités que vous souhaitez : ");
         System.out.println("1 - Sport");
         System.out.println("2 - Culture");
         System.out.println("3 - Loisir");
@@ -119,7 +119,7 @@ public class Main {
             }
         }
 
-        System.out.println("Entrez le chiffre qui correspond à la deuxième catégorie d'acitivités que vous souhaitez : ");
+        System.out.println("Entrez le chiffre qui correspond à la deuxième catégorie d'activités que vous souhaitez : ");
         System.out.println("1 - Sport");
         System.out.println("2 - Culture");
         System.out.println("3 - Loisir");
@@ -174,7 +174,7 @@ public class Main {
         System.out.println("Transports retour : ");
         ArrayList<ArrayList<Transport>> returnTransports = travels.get(0).getTravel().getReturnTrip();
         if(returnTransports.isEmpty()){
-            System.out.println("Aucun transport retour disponible pour ces villes à cette date et dans votre budget.");
+            System.out.println("    Aucun transport retour disponible pour ces villes à cette date et dans votre budget.");
         }
         else{
             int count = 1;
