@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -104,6 +105,22 @@ public void testFindTransportsDirectMatchWithoutType() throws IOException {
     assertEquals("Marseille", transports.get(0).get(0).getDestinationCity());
 }
 
+@Test
+public void testGetAllTransportHandlesIOException() {
+    FileManager mockFileManager = Mockito.mock(FileManager.class);
+
+    try {
+        when(mockFileManager.getAllElements(anyString(), any(TypeReference.class)))
+            .thenThrow(new IOException("Simulated IOException"));
+
+        CorrespondingTransports correspondingTransports = new CorrespondingTransports("example.csv", mockFileManager);
+        correspondingTransports.getAllTransport();
+
+        assertTrue(correspondingTransports.getTransports().isEmpty());
+    } catch (Exception e) {
+        fail("Exception should have been handled inside the getAllTransport method.");
+    }
+}
 
 
 @Test
@@ -141,6 +158,102 @@ public void testFindTransportsWithStopover() throws IOException {
     assertEquals(2, transports.get(0).size());
     assertEquals("Lyon", transports.get(0).get(0).getDestinationCity());
     assertEquals("Marseille", transports.get(0).get(1).getDestinationCity());
+}
+
+@Test
+public void testFindTransportsWithStopoverBadTransition() throws IOException {
+    FileManager mockFileManager = Mockito.mock(FileManager.class);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    ArrayList<Transport> mockTransports = new ArrayList<>();
+    mockTransports.add(new Transport("Paris", "Lyon", 
+        LocalDateTime.parse("2025-01-19 06:00:00", formatter), 
+        LocalDateTime.parse("2025-01-19 08:00:00", formatter), 
+        new BigDecimal(40.0), TransportType.TRAIN));
+    mockTransports.add(new Transport("Nice", "Marseille", 
+        LocalDateTime.parse("2025-01-19 08:15:00", formatter), 
+        LocalDateTime.parse("2025-01-19 09:00:00", formatter), 
+        new BigDecimal(50.0), TransportType.TRAIN));
+    
+
+    when(mockFileManager.getAllElements(anyString(), any(TypeReference.class)))
+        .thenReturn((List<Transport>) mockTransports);
+
+    CorrespondingTransports correspondingTransports = new CorrespondingTransports("example.csv", mockFileManager);
+
+    UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
+
+    ArrayList<ArrayList<Transport>> transports = correspondingTransports.findTransports(
+        userPreferences, "Paris", "Marseille", 
+        LocalDateTime.parse("2025-01-19 00:00:00", formatter), 
+        new BigDecimal(100.0));
+
+    assertEquals(0, transports.size());
+    
+}
+
+@Test
+public void testFindTransportsWithStopoverBadDepartureCity() throws IOException {
+    FileManager mockFileManager = Mockito.mock(FileManager.class);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    ArrayList<Transport> mockTransports = new ArrayList<>();
+    mockTransports.add(new Transport("Toulon", "Lyon", 
+        LocalDateTime.parse("2025-01-19 06:00:00", formatter), 
+        LocalDateTime.parse("2025-01-19 08:00:00", formatter), 
+        new BigDecimal(40.0), TransportType.TRAIN));
+    mockTransports.add(new Transport("Lyon", "Marseille", 
+        LocalDateTime.parse("2025-01-19 08:15:00", formatter), 
+        LocalDateTime.parse("2025-01-19 09:00:00", formatter), 
+        new BigDecimal(50.0), TransportType.TRAIN));
+    
+
+    when(mockFileManager.getAllElements(anyString(), any(TypeReference.class)))
+        .thenReturn((List<Transport>) mockTransports);
+
+    CorrespondingTransports correspondingTransports = new CorrespondingTransports("example.csv", mockFileManager);
+
+    UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
+
+    ArrayList<ArrayList<Transport>> transports = correspondingTransports.findTransports(
+        userPreferences, "Paris", "Marseille", 
+        LocalDateTime.parse("2025-01-19 00:00:00", formatter), 
+        new BigDecimal(100.0));
+
+    assertEquals(0, transports.size());
+    
+}
+
+@Test
+public void testFindTransportsWithStopoverBadTime() throws IOException {
+    FileManager mockFileManager = Mockito.mock(FileManager.class);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    ArrayList<Transport> mockTransports = new ArrayList<>();
+    mockTransports.add(new Transport("Paris", "Lyon", 
+        LocalDateTime.parse("2025-01-20 06:00:00", formatter), 
+        LocalDateTime.parse("2025-01-20 08:00:00", formatter), 
+        new BigDecimal(40.0), TransportType.TRAIN));
+    mockTransports.add(new Transport("Lyon", "Marseille", 
+        LocalDateTime.parse("2025-01-19 08:15:00", formatter), 
+        LocalDateTime.parse("2025-01-19 09:00:00", formatter), 
+        new BigDecimal(50.0), TransportType.TRAIN));
+    
+
+    when(mockFileManager.getAllElements(anyString(), any(TypeReference.class)))
+        .thenReturn((List<Transport>) mockTransports);
+
+    CorrespondingTransports correspondingTransports = new CorrespondingTransports("example.csv", mockFileManager);
+
+    UserPreferences userPreferences = new UserPreferences(TransportType.TRAIN, PrivilegedTransport.PRIX_MINIMUM, 2, PrivilegedHotel.PRIX_MINIMUM, ActivityType.SPORT, ActivityType.CULTURE);
+
+    ArrayList<ArrayList<Transport>> transports = correspondingTransports.findTransports(
+        userPreferences, "Paris", "Marseille", 
+        LocalDateTime.parse("2025-01-19 00:00:00", formatter), 
+        new BigDecimal(100.0));
+
+    assertEquals(0, transports.size());
+    
 }
 
 @Test
@@ -205,6 +318,7 @@ public void testFindTransportsWithMinimumPricePreference() throws IOException {
     assertEquals(1, transports.size());
     assertEquals(new BigDecimal(80.0), transports.get(0).get(0).getPrice());
 }
+
 
 @Test
 public void testFindTransportsWithMinimumPricePreferenceAndTimeDifference() throws IOException {
@@ -530,8 +644,4 @@ public void testFindTransportsWithMinimumPricePreferenceAndTransportPriceEqualTo
 
     assertEquals(0, transports.size());
 }
-
-
-
-
 }

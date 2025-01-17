@@ -66,8 +66,9 @@ public class CorrespondingTransports {
                     //vérification de l'homogénéité des transports
                     if (secondTransportType == firstTransportType) {
                         //on vérifie le jour, que les heures correspondent et que les villes correspondent)
-                        if (secondTransportDate.toLocalDate().equals(departureDate.toLocalDate()) && secondTransport.getDestinationDateTime().isBefore(transport.getDepartureDateTime().minusMinutes(10))
-                                && secondTransport.getDepartureCity().equals(departure) && secondTransport.getDestinationCity().equals(stopover)) {
+                        if (secondTransportDate.toLocalDate().equals(departureDate.toLocalDate()) && secondTransport.getDestinationDateTime().isBefore(transport.getDepartureDateTime().minusMinutes(10)))
+
+                            if(secondTransport.getDepartureCity().equals(departure) && secondTransport.getDestinationCity().equals(stopover)) {
                             //on vérifie que le budget ne dépasse pas
                             if (secondTransport.getPrice().add(transport.getPrice()).compareTo(budget) < 0) {
                                 ArrayList<Transport> fullTransport = new ArrayList<Transport>();
