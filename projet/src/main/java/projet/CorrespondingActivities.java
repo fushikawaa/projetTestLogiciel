@@ -48,7 +48,8 @@ public class CorrespondingActivities {
                     cooActivity = coordinatesManager.getCoordinates(activity.getAddress());
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return null;
+                    goodActivities = new ArrayList<>();
+                    return goodActivities;
                 }
                 
                 BigDecimal dist = new BigDecimal(coordinatesManager.calculateDistance(cooHotel[0], cooHotel[1], cooActivity[0], cooActivity[1]));

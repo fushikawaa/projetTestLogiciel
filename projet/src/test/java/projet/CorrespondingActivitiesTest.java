@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;
@@ -363,6 +361,6 @@ public class CorrespondingActivitiesTest{
         Hotel hotel = new Hotel("Paris Hotel", "1 Avenue des Champs-Élysées, Paris", "Paris", 4, new BigDecimal(200));
 
         // Filtrer les activités & assertions
-        assertNull(correspondingActivities.findActivities(userPreferences, travelRequirements, new BigDecimal(100), hotel));
+        assertEquals(new ArrayList<>(), correspondingActivities.findActivities(userPreferences, travelRequirements, new BigDecimal(100), hotel));
     }
 }
