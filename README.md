@@ -34,3 +34,10 @@ Les tests unitaires peuvent être lancés grâce à la commande :
 **Tests d'intégration**
 Pour lancer les tests d'intégration, il faut compiler l'ensemble des tests avec la commande `mvn clean test` puis exécuter uniquement les tests d'intégration avec la commande :
 `mvn failsafe:integration-test`
+
+## Lancer les rapports de couverture et de mutation
+**Rapport de couverture**
+`mvn clean test jacoco :report`
+
+**Rapport de mutation**
+`mvn clean test org.pitest :pitest-maven :mutationCoverage`
